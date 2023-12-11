@@ -1,6 +1,6 @@
+import { join } from 'path'
 import { createResolver } from '@nuxt/kit'
 const { resolve } = createResolver(import.meta.url)
-import { join } from 'path'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
