@@ -1,15 +1,15 @@
 {
-  "name": "@nuxt-awesome/theme",
+  "name": "hrm-app",
   "version": "2.0.12",
-  "description": "a Nuxt 3 template and boilerplate with a lot of useful features. Nuxt 3 + Tailwindcss + Nuxt Layer",
-  "author": "viandwi24",
+  "description": "hrm application",
+  "author": "hungkb16",
   "private": false,
   "license": "MIT",
   "type": "module",
   "main": "./nuxt.config.ts",
   "repository": {
     "type": "git",
-    "url": "git://github.com/viandwi24/nuxt3-awesome-starter"
+    "url": ""
   },
   "files": [
     "assets",

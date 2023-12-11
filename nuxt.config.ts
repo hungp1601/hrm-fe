@@ -1,5 +1,6 @@
 import { createResolver } from '@nuxt/kit'
 const { resolve } = createResolver(import.meta.url)
+import { join } from 'path'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -49,6 +50,14 @@ export default defineNuxtConfig({
     // todo: feat/localization
     // '@nuxtjs/i18n'
   ],
+
+  // svgSprite: {
+  //   input: '~/assets/sprite/svg',
+  //   output: '~/assets/sprite/gen',
+  // },
+  // alias: {
+  //   '~/assets/sprite/gen': join(__dirname, 'assets/sprite/gen'),
+  // },
 
   css: [
     resolve('./assets/scss/_variables.scss'),
