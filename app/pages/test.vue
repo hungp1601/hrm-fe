@@ -83,6 +83,6 @@ useHead({ title: 'Test Page' })
       </div>
     </LayoutPageSection>
     <el-button @click="ElMessage('hello')">button</el-button>
-    <svg-icon name="calendar" />
+    <svg-icon name="love" />
   </LayoutPageWrapper>
 </template>

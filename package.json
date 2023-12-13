@@ -36,7 +36,8 @@
     "dev:starter": "nuxt dev ./examples/starter",
     "lint": "eslint --ext \".ts,.js,.vue\" --ignore-path .eslintignore .",
     "lint:fix": "eslint --fix --ext \".ts,.js,.vue\" --ignore-path .eslintignore .",
-    "release": "release-it"
+    "release": "release-it",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
@@ -71,6 +72,7 @@
     "eslint": "^8.52.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.1",
+    "husky": "^8.0.3",
     "lodash": "^4.17.21",
     "nuxt": "^3.8.0",
     "nuxt-bootstrap-icons": "^1.0.3",
