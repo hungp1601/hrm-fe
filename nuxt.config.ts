@@ -75,6 +75,11 @@ export default defineNuxtConfig({
       path: resolve('./components/awesome'),
       global: true,
     },
+    {
+      prefix: '',
+      path: resolve('./components/common'),
+      global: true,
+    },
   ],
 
   imports: {

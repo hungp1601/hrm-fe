@@ -1,5 +1,5 @@
 <script setup>
-defineProps({
+const props = defineProps({
   name: {
     type: String,
     required: true,
@@ -11,9 +11,16 @@ defineProps({
 
   size: {
     type: Number,
-    default: 16,
+    default: 30,
   },
 })
+
+function parseSize(value) {
+  if (/px$|rem$|em$/.test(value)) {
+    return value
+  }
+  return value + 'px'
+}
 
 const type = computed(() => {
   if (props.name.startsWith('bi')) {
@@ -27,13 +34,50 @@ const type = computed(() => {
   if (props.name.startsWith('img')) {
     return 'image'
   }
-  // this.$log
   return 'svg'
+})
+
+const _size = computed(() => {
+  if (!props.size) return {}
+  switch (type.value) {
+    case 'bootstrap':
+      return {
+        fontSize: parseSize(props.size),
+      }
+    case 'image':
+    case 'svg':
+      return {
+        width: parseSize(props.size),
+        height: parseSize(props.size),
+      }
+    case 'element':
+      return {
+        width: parseSize(props.size),
+        height: parseSize(props.size),
+      }
+    default:
+      return {}
+  }
 })
 </script>
 
 <template>
-  <BootstrapIcon v-if="type === 'bootstrap'" :name="name.replace('bi-', '')" />
-  <!-- <i v-else-if="type === 'element'" :class="name"></i> -->
-  <svg-icon v-else-if="type === 'svg'" :name="name" />
+  <BootstrapIcon
+    v-if="type === 'bootstrap'"
+    :name="name.replace('bi-', '')"
+    :style="{
+      ..._size,
+    }"
+  />
+  <component
+    :is="name.replace('el-icon-', '')"
+    v-else-if="type === 'element'"
+  ></component>
+  <svg-icon
+    v-else-if="type === 'svg'"
+    :name="name"
+    :style="{
+      ..._size,
+    }"
+  />
 </template>
