@@ -176,9 +176,9 @@ const validate = async () => {
                   <p class="mb-2">toggle enable to remove the red border</p>
                   <div class="flex">
                     <AwesomeFormSwitch v-model="enableSpamProtection">
-                      <span class="capitalize">{{
-                        enableSpamProtection ? 'enabled' : 'disabled'
-                      }}</span>
+                      <span class="capitalize">
+                        {{ enableSpamProtection ? 'enabled' : 'disabled' }}
+                      </span>
                     </AwesomeFormSwitch>
                   </div>
                 </AwesomeCardContent>
@@ -200,9 +200,9 @@ const validate = async () => {
                   </p>
                   <div class="flex">
                     <AwesomeFormSwitch v-model="enableAdvancedSetting">
-                      <span class="capitalize">{{
-                        enableAdvancedSetting ? 'enabled' : 'disabled'
-                      }}</span>
+                      <span class="capitalize">
+                        {{ enableAdvancedSetting ? 'enabled' : 'disabled' }}
+                      </span>
                     </AwesomeFormSwitch>
                   </div>
                 </AwesomeCardContent>
@@ -219,9 +219,9 @@ const validate = async () => {
                   </p>
                   <div class="flex">
                     <AwesomeFormSwitch v-model="enableDirList" on>
-                      <span class="capitalize">{{
-                        enableDirList ? 'enabled' : 'disabled'
-                      }}</span>
+                      <span class="capitalize">
+                        {{ enableDirList ? 'enabled' : 'disabled' }}
+                      </span>
                     </AwesomeFormSwitch>
                   </div>
                 </AwesomeCardContent>

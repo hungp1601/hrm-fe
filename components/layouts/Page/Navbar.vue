@@ -107,8 +107,9 @@ const showDrawer = ref(false)
                       'text-gray-900 dark:text-gray-100 font-bold': isActive,
                       'text-gray-700 dark:text-gray-300': !isActive,
                     }"
-                    >{{ parseMenuTitle(item?.title) }}</span
                   >
+                    {{ parseMenuTitle(item?.title) }}
+                  </span>
                 </NuxtLink>
               </template>
               <template v-if="item?.type === 'button'">
@@ -165,8 +166,9 @@ const showDrawer = ref(false)
                                   ? 'text-gray-900 dark:text-gray-100 font-bold'
                                   : 'text-gray-700 dark:text-gray-300',
                               ]"
-                              >{{ parseMenuTitle(child?.title) }}</span
                             >
+                              {{ parseMenuTitle(child?.title) }}
+                            </span>
                           </NuxtLink>
                         </template>
                       </HeadlessDisclosurePanel>

@@ -38,8 +38,9 @@ const props = defineProps({
           'text-gray-900 dark:text-gray-100 font-bold': isActive,
           'text-gray-700 dark:text-gray-300': !isActive,
         }"
-        >{{ parseMenuTitle(menu?.title) }}</span
       >
+        {{ parseMenuTitle(menu?.title) }}
+      </span>
     </NuxtLink>
   </template>
   <template v-else-if="menu?.type === 'button'">

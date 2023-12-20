@@ -18,8 +18,12 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      apiBase: process.env.NUXT_BASE_API || 'https://api.ryanyou.com',
+      apiBase: process.env.BASE_API_URL || 'localhost:3000',
     },
+  },
+
+  devServer: {
+    port: Number(process.env.PORT) || 4000,
   },
 
   // typescripts
@@ -50,14 +54,6 @@ export default defineNuxtConfig({
     // todo: feat/localization
     // '@nuxtjs/i18n'
   ],
-
-  // svgSprite: {
-  //   input: '~/assets/sprite/svg',
-  //   output: '~/assets/sprite/gen',
-  // },
-  // alias: {
-  //   '~/assets/sprite/gen': join(__dirname, 'assets/sprite/gen'),
-  // },
 
   css: [
     resolve('./assets/scss/_variables.scss'),

@@ -35,9 +35,9 @@ const isActive = computed(() => {
       <HeadlessPopoverButton
         class="flex items-center transition-all duration-300 text-gray-900 dark:text-gray-100"
       >
-        <span :class="[isActive ? 'font-bold' : '']">{{
-          parseMenuTitle(menu.title)
-        }}</span>
+        <span :class="[isActive ? 'font-bold' : '']">
+          {{ parseMenuTitle(menu.title) }}
+        </span>
         <Icon
           name="carbon:chevron-down"
           class="ml-1"

@@ -25,11 +25,11 @@ export const AuthStore = defineStore('auth-store', () => {
   function FN_LOGOUT() {
     TOKEN_REF.value = null
 
-    const { $swal } = useNuxtApp()
+    const { $swal: any } = useNuxtApp()
 
     $swal
       .fire({
-        html: '<p class="fw-800 text-20px">登出成功</p>',
+        html: '<p class="fw-800 text-20px">Logout successfully</p>',
         icon: 'success',
         showConfirmButton: false,
         timer: 1500,

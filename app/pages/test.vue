@@ -54,7 +54,7 @@ useHead({ title: 'Test Page' })
       <!-- store::identity -->
       <div class="mb-6">
         <div class="mb-2">
-          <span class="capitalize">Full Name : </span>
+          <span class="capitalize">Full Name :</span>
           <span>{{ identity.fullName }}</span>
         </div>
         <div class="mb-2">
