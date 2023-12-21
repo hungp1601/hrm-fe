@@ -72,14 +72,22 @@ export default defineNuxtConfig({
       global: true,
     },
     {
-      prefix: '',
+      pathPrefix: false,
       path: resolve('./components/common'),
       global: true,
     },
   ],
 
   imports: {
-    dirs: [resolve('./stores'), '@/stores'],
+    dirs: [
+      resolve('./stores'),
+      '@/stores', // Scan top-level modules
+      'composables',
+      // ... or scan modules nested one level deep with a specific name and file extension
+      'composables/*/index.{ts,js,mjs,mts}',
+      // ... or scan all modules within given directory
+      'composables/**',
+    ],
   },
 
   // module::pinia
@@ -95,6 +103,8 @@ export default defineNuxtConfig({
   // module::color-mode
   colorMode: {
     classSuffix: '',
+    preference: 'light',
+    fallback: 'light',
   },
 
   // module::content

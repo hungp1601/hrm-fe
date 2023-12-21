@@ -1,0 +1,21 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box; // 1
+}
+
+
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+  display: block;
+}
+
+
+
+body {
+  margin: 0; // 1
+  font-family: Roboto;
+  line-height: auto;
+  // color: #fff;
+  text-align: left; // 3
+  background-color: #fff; // 2
+}

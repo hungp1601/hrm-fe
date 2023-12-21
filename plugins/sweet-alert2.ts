@@ -1,7 +1,7 @@
 import Swal from 'sweetalert2'
 
 export default defineNuxtPlugin(() => {
-  const swal = Swal
+  const swal: any = Swal
   return {
     provide: {
       swal,
