@@ -4,6 +4,12 @@ import colors from 'tailwindcss/colors'
 
 const MyTheme = {
   colors: {
+    warning: '#FBC02D',
+    success: '#E53835',
+    confirm: '#2E7D31',
+    grey: '#717171',
+    silver: '#F5F7FA',
+
     green: {
       DEFAULT: '#3BA676',
       '50': '#B4E4CF',
@@ -18,17 +24,17 @@ const MyTheme = {
       '900': '#000000',
     },
     blue: {
-      DEFAULT: '#0096FF',
+      DEFAULT: '#2684FF',
       '50': '#B8E2FF',
-      '100': '#A3D9FF',
-      '200': '#7AC8FF',
-      '300': '#52B8FF',
-      '400': '#29A7FF',
+      '100': '#DEEBFF',
+      '200': '#B3D4FF',
+      '300': '#4C9AFF',
+      '400': '#2684FF',
       '500': '#0096FF',
-      '600': '#0075C7',
-      '700': '#00548F',
-      '800': '#003357',
-      '900': '#00121F',
+      '600': '#2684FF',
+      '700': '#0065FF',
+      '800': '#0052CC',
+      '900': '#0747A6',
     },
     red: {
       DEFAULT: '#FF6464',

@@ -78,25 +78,36 @@ const handleLogin = async () => {
 </script>
 
 <template>
-  <div class="login-page">
-    <app-icon name="bi-plus"></app-icon>
+  <div
+    class="login-page w-screen h-screen flex flex-row justify-center items-center"
+  >
+    <img
+      src="../assets/images/saly.png"
+      alt=""
+      style="width: 460px; height: 460px"
+    />
     <el-form
       ref="loginRef"
       :model="form"
       :rules="rules"
-      label-width="120px"
-      class="demo-ruleForm"
-      status-icon
+      label-position="top"
+      class="login-form"
+      size="large"
     >
       <el-form-item label="Tài khoản" prop="username">
         <el-input v-model="form.username" />
       </el-form-item>
       <el-form-item label="Mật khẩu" prop="password">
-        <el-input v-model="form.password" />
+        <el-input v-model="form.password" type="password" show-password />
+      </el-form-item>
+      <el-form-item>
+        <el-button @click="handleLogin">Create</el-button>
       </el-form-item>
     </el-form>
-    <el-form-item>
-      <el-button type="primary" @click="handleLogin">Create</el-button>
-    </el-form-item>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.login-page {
+}
+</style>
