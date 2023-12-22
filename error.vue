@@ -4,8 +4,6 @@ import { get } from './utils'
 const props = defineProps({
   error: Object,
 })
-
-const handleError = () => clearError({ redirect: '/' })
 </script>
 
 <template>
@@ -17,13 +15,13 @@ const handleError = () => clearError({ redirect: '/' })
       <p>{{ get(error, 'statusMessage') }}</p>
     </div>
     <img src="./assets/images/error.png" alt="" srcset="" />
-    <button
+    <NuxtLink
       class="font-hel text-2xl text-black gap-2 mb-1 flex items-center"
       style="border-bottom: 2px solid black"
-      @click="handleError"
+      to="/"
     >
       <app-icon :size="36" name="return-circle"></app-icon>
       <div>Go home</div>
-    </button>
+    </NuxtLink>
   </div>
 </template>
