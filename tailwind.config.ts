@@ -4,12 +4,6 @@ import colors from 'tailwindcss/colors'
 
 const MyTheme = {
   colors: {
-    warning: '#FBC02D',
-    success: '#E53835',
-    confirm: '#2E7D31',
-    grey: '#717171',
-    silver: '#F5F7FA',
-
     green: {
       DEFAULT: '#3BA676',
       '50': '#B4E4CF',
@@ -78,9 +72,20 @@ export default <Partial<Config>>{
         blue: MyTheme.colors.blue,
         red: MyTheme.colors.red,
         slate: colors.slate,
+
+        warning: '#FBC02D',
+        success: '#E53835',
+        confirm: '#2E7D31',
+        grey: '#717171',
+        silver: '#F5F7FA',
+        'l-grey': '#ADADAD',
+        'd-grey': '#4D4D4D',
+        bblack: '#263238',
       },
       fontFamily: {
         sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+
+        hel: 'Helvetica, Arial, sans-serif',
       },
     },
   },

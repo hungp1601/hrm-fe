@@ -57,6 +57,7 @@ export default defineNuxtConfig({
         families: {
           Roboto: true,
           Inter: [400, 700],
+          Helvetica: true,
           'Josefin+Sans': true,
           Lato: [100, 300],
           Raleway: {
@@ -136,6 +137,22 @@ export default defineNuxtConfig({
     highlight: {
       theme: 'github-dark',
     },
+  },
+
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@use "../assets/scss/element/index.scss" as element;`,
+        },
+      },
+    },
+  },
+
+  elementPlus: {
+    icon: 'ElIcon',
+    importStyle: 'scss',
+    // themes: ['light'],
   },
 
   // todo: feat/localization
