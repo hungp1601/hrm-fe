@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { get } from './utils'
+import { get } from '../utils'
 
 const props = defineProps({
   error: Object,
