@@ -3,17 +3,6 @@
   "extends": "./../tsconfig.json",
   "compilerOptions": {
     "ignoreDeprecations": "5.0",
-    "suppressImplicitAnyIndexErrors": true,
-    "paths": {
-      "~/*": ["./*"],
-      "@/*": ["./*"],
-      "@@/*": ["../*"],
-      "@/Utils/*": ["../utils/*"],
-      "@/Utils": ["../utils"],
-      "@Utils/*": ["../utils/*"],
-      "@Utils": ["../utils"],
-      "#app": ["../node_modules/nuxt/dist/app"],
-      "#app/*": ["../node_modules/nuxt/dist/app/*"]
-    }
+    "suppressImplicitAnyIndexErrors": true
   }
 }

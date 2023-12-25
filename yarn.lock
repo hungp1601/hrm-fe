@@ -1829,7 +1829,7 @@
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==
 
-"@types/lodash-es@^4.17.6":
+"@types/lodash-es@^4.17.10", "@types/lodash-es@^4.17.6":
   version "4.17.12"
   resolved "https://registry.yarnpkg.com/@types/lodash-es/-/lodash-es-4.17.12.tgz#65f6d1e5f80539aa7cfbfc962de5def0cf4f341b"
   integrity sha512-0NgftHUcV4v34VhXm8QBSftKVXtbkBG3ViCjs6+eJ5a6y6Mi/jiFGPc1sC7QK+9BFhWrURE3EOggmWaSxL9OzQ==
@@ -3640,7 +3640,15 @@ data-uri-to-buffer@^6.0.0:
   resolved "https://registry.yarnpkg.com/data-uri-to-buffer/-/data-uri-to-buffer-6.0.1.tgz#540bd4c8753a25ee129035aebdedf63b078703c7"
   integrity sha512-MZd3VlchQkp8rdend6vrx7MmVDJzSNTBvghvKjirLkD+WTChA3KUf0jkE68Q4UyctNqI11zZO9/x2Yx+ub5Cvg==
 
-dayjs@^1.11.3:
+dayjs-nuxt@^2.1.9:
+  version "2.1.9"
+  resolved "https://registry.yarnpkg.com/dayjs-nuxt/-/dayjs-nuxt-2.1.9.tgz#e36d722873bcf82a00b15d294855b36caac35786"
+  integrity sha512-7L1X8Wm+O2s2o+YK8RH1GK0SUUsh7l0lnIzsjaLGvyu64asLs2KVNoh25J4tQurdILp2TyrFaTo/k3k/ZPub9Q==
+  dependencies:
+    "@nuxt/kit" "^3.7.4"
+    dayjs "^1.11.10"
+
+dayjs@^1.11.10, dayjs@^1.11.3:
   version "1.11.10"
   resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.10.tgz#68acea85317a6e164457d6d6947564029a6a16a0"
   integrity sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==
@@ -8041,6 +8049,15 @@ nuxt-icon@^0.6.1:
     "@iconify/vue" "^4.1.1"
     "@nuxt/devtools-kit" "^1.0.4"
     "@nuxt/kit" "^3.8.2"
+
+nuxt-lodash@^2.5.3:
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/nuxt-lodash/-/nuxt-lodash-2.5.3.tgz#7ae8ba5762df3ae3e7a061d86eac923b7c5173e1"
+  integrity sha512-LCJ40tGQTHkfk8rQoGqtb0mFgRVt8U+pc3S352DsI39yF3olqgxlsm28wdJMIcWHuxLgf5X+DwxmZhrAHXNS5g==
+  dependencies:
+    "@nuxt/kit" "^3.8.0"
+    "@types/lodash-es" "^4.17.10"
+    lodash-es "^4.17.21"
 
 nuxt-logger@^0.2.0:
   version "0.2.0"

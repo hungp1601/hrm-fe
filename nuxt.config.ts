@@ -50,7 +50,8 @@ export default defineNuxtConfig({
     '@element-plus/nuxt',
     'nuxt-bootstrap-icons',
     '@nuxtjs/svg-sprite',
-
+    'dayjs-nuxt',
+    'nuxt-lodash',
     [
       '@nuxtjs/google-fonts',
       {
@@ -75,6 +76,17 @@ export default defineNuxtConfig({
     // todo: feat/localization
     // '@nuxtjs/i18n'
   ],
+
+  svgSprite: {
+    input: '@/assets/sprite/svg',
+    output: '@/assets/sprite/gen',
+  },
+
+  lodash: {
+    prefix: '_',
+    upperAfterPrefix: false,
+    alias: [],
+  },
 
   css: [
     resolve('./assets/scss/_variables.scss'),

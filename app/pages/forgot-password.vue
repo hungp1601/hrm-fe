@@ -83,7 +83,7 @@ const handleLogin = async () => {
     class="login-page w-screen h-screen flex flex-row justify-center items-center flex-wrap"
   >
     <img
-      src="../assets/images/saly.png"
+      src="@/assets/images/saly.png"
       alt=""
       style="width: 460px; height: 460px"
     />

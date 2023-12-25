@@ -1,6 +1,7 @@
 {
   // https://nuxt.com/docs/guide/concepts/typescript
   "extends": "./app/.nuxt/tsconfig.json",
+  "rootDir": "./",
   "compilerOptions": {
     "strict": true,
     "skipLibCheck": true,
@@ -10,7 +11,6 @@
     "paths": {
       "~/*": ["./*"],
       "@/*": ["./*"],
-      "@@/*": ["../*"],
       "@/Utils/*": ["./utils/*"],
       "@/Utils": ["./utils"],
       "@Utils/*": ["./utils/*"],
