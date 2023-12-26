@@ -14,7 +14,7 @@ const props = defineProps({
       <h2 class="text-6xl black font-bold">{{ get(error, 'statusCode') }}</h2>
       <p>{{ get(error, 'statusMessage') }}</p>
     </div>
-    <img src="./assets/images/error.png" alt="" srcset="" />
+    <img src="@/assets/images/error.png" alt="" srcset="" />
     <NuxtLink
       class="font-hel text-2xl text-black gap-2 mb-1 flex items-center"
       style="border-bottom: 2px solid black"

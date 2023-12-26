@@ -25,19 +25,12 @@ export const AuthStore = defineStore('auth-store', () => {
   function FN_LOGOUT() {
     TOKEN_REF.value = null
 
-    const { $swal: any } = useNuxtApp()
+    const { $toast } = useNuxtApp()
+    const router = useRouter()
 
-    $swal
-      .fire({
-        html: '<p class="fw-800 text-20px">Logout successfully</p>',
-        icon: 'success',
-        showConfirmButton: false,
-        timer: 1500,
-      })
-      .then(() => {
-        const router = useRouter()
-        router.push('/login')
-      })
+    $toast.success('Đăng xuất thành công')
+
+    router.push('/login')
   }
 
   function FN_REMOVE_TOKEN() {

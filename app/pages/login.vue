@@ -12,7 +12,7 @@ interface RuleForm {
   password: string
 }
 
-const { $swal } = useNuxtApp()
+const { $toast } = useNuxtApp()
 
 const loginRef = ref<FormInstance>()
 const { validateForm } = useFormHandler()
@@ -56,13 +56,7 @@ async function login() {
     refresh_token.value = refreshToken
     AuthStore().FN_SET_REFRESH_TOKEN(refreshToken)
 
-    await $swal.fire({
-      icon: 'success',
-      iconColor: '#000',
-      html: 'login successful',
-      timer: 1500,
-      showConfirmButton: false,
-    })
+    $toast.success('Đăng nhập thành công')
 
     router.push('/')
   } catch (err) {

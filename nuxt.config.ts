@@ -77,21 +77,11 @@ export default defineNuxtConfig({
     // '@nuxtjs/i18n'
   ],
 
-  svgSprite: {
-    input: '@/assets/sprite/svg',
-    output: '@/assets/sprite/gen',
-  },
-
-  lodash: {
-    prefix: '_',
-    upperAfterPrefix: false,
-    alias: [],
-  },
-
   css: [
     resolve('./assets/scss/_variables.scss'),
     resolve('./assets/scss/_layout.scss'),
     resolve('./assets/scss/app.scss'),
+    'vue-toast-notification/dist/theme-default.css',
   ],
 
   components: [
@@ -127,6 +117,12 @@ export default defineNuxtConfig({
   // module::pinia
   pinia: {
     storesDirs: ['~/stores/**', '#/stores/**', '@/stores/**'],
+  },
+
+  lodash: {
+    prefix: '_',
+    upperAfterPrefix: false,
+    alias: [],
   },
 
   // module::headlessui

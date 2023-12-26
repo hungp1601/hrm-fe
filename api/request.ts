@@ -151,7 +151,8 @@ export default class http {
 
   // RefreshToken
   private static async handleRefreshToken(): Promise<boolean> {
-    const { $swal } = useNuxtApp()
+    const { $toast } = useNuxtApp()
+
     // Get environment variable BaseURL
     const runtimeConfig = useRuntimeConfig()
     const { apiBase } = runtimeConfig.public
@@ -179,12 +180,8 @@ export default class http {
 
       if (!res?.accessToken || !res?.refreshToken) {
         // @ts-ignore
-        $swal.fire({
-          icon: 'error',
-          html: '請重新登入',
-          timer: 1500,
-          showConfirmButton: false,
-        })
+        $toast.error('Xin vui lòng đăng nhập lại')
+
         AuthStore().FN_REMOVE_TOKEN()
 
         const accessToken = useCookie('authorization')
@@ -207,45 +204,27 @@ export default class http {
 
   // Error handling
   private static handleErrorMessage(status: number, message: string) {
-    const { $swal } = useNuxtApp()
+    const { $toast } = useNuxtApp()
+
     switch (status) {
       case 401: {
         // @ts-ignore
-        $swal.fire({
-          icon: 'error',
-          html: `${status} ${message}`,
-          timer: 1500,
-          showConfirmButton: false,
-        })
+        $toast.error(`${status} ${message}`)
         AuthStore().FN_REMOVE_TOKEN()
         break
       }
       case 404:
         // @ts-ignore
-        $swal.fire({
-          icon: 'error',
-          html: `${status} ${message}`,
-          timer: 1500,
-          showConfirmButton: false,
-        })
+        $toast.error(`${status} ${message}`)
+
         break
       case 500:
         // @ts-ignore
-        $swal.fire({
-          icon: 'error',
-          html: `${status} ${message}`,
-          timer: 1500,
-          showConfirmButton: false,
-        })
+        $toast.error(`${status} ${message}`)
         break
       default:
         // @ts-ignore
-        $swal.fire({
-          icon: 'error',
-          html: `${status} ${message}`,
-          timer: 1500,
-          showConfirmButton: false,
-        })
+        $toast.error(`${status} ${message}`)
         break
     }
   }

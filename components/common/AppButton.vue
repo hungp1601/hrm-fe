@@ -26,7 +26,9 @@ const type = computed(() => {
   if (props.name.startsWith('bi')) {
     return 'bootstrap'
   }
-
+  if (props.name.startsWith('el-icon')) {
+    return 'element'
+  }
   if (props.name.startsWith('img')) {
     return 'image'
   }
@@ -82,6 +84,11 @@ const _size = computed(() => {
     :style="{
       ..._size,
     }"
+    v-on="$listeners"
+  />
+  <component
+    :is="name.replace('el-icon-', '')"
+    v-else-if="type === 'element'"
     v-on="$listeners"
   />
 </template>
