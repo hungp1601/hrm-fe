@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { get } from '../utils'
-import { ROUTER_NAMES } from './config/router.name';
+import { ROUTER_NAMES } from './config/router.name'
 
 const props = defineProps({
   error: Object,
