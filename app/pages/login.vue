@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import type { FormInstance, FormRules } from 'element-plus'
+import { ROUTER_NAMES } from '../config/router.name'
 import { FETCH_AUTH } from '@/api'
 import { AuthStore } from '@/stores'
 
@@ -57,8 +58,7 @@ const login = async () => {
     AuthStore().FN_SET_REFRESH_TOKEN(refreshToken)
 
     $toast.success('Đăng nhập thành công')
-
-    router.push('/')
+    router.push({ name: ROUTER_NAMES.HOME })
   } catch (err) {
     console.error(err)
   }
@@ -66,8 +66,8 @@ const login = async () => {
 
 const handleLogin = async () => {
   const valid = await validateForm(loginRef.value)
-
   if (!valid) return
+
   login()
 }
 </script>

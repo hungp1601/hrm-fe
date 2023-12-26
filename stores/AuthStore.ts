@@ -43,7 +43,7 @@ export const AuthStore = defineStore('auth-store', () => {
   async function FN_GET_USER_INFO() {
     if (!TOKEN_GETTER.value) return
 
-    const result = await FETCH_AUTH.getUserInfo({})
+    const { result } = await FETCH_AUTH.getUserInfo({})
 
     USER_INFO.value = result
   }
