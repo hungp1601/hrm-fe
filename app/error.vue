@@ -1,9 +1,16 @@
 <script setup lang="ts">
 import { get } from '../utils'
+import { ROUTER_NAMES } from './config/router.name';
 
 const props = defineProps({
   error: Object,
 })
+
+const router = useRouter()
+
+const handleBack = () => {
+  router.push({ name: ROUTER_NAMES.HOME })
+}
 </script>
 
 <template>
@@ -15,13 +22,13 @@ const props = defineProps({
       <p>{{ get(error, 'statusMessage') }}</p>
     </div>
     <img src="@/assets/images/error.png" alt="" srcset="" />
-    <NuxtLink
+    <div
       class="font-hel text-2xl text-black gap-2 mb-1 flex items-center"
       style="border-bottom: 2px solid black"
-      to="/"
+      @click="handleBack"
     >
       <app-icon :size="36" name="return-circle"></app-icon>
       <div>Go home</div>
-    </NuxtLink>
+    </div>
   </div>
 </template>
