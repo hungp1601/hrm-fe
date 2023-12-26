@@ -8,8 +8,9 @@ definePageMeta({
 })
 
 interface RuleForm {
-  username: string
+  email: string
   password: string
+  company_id: number
 }
 
 const { $toast } = useNuxtApp()
@@ -18,12 +19,13 @@ const loginRef = ref<FormInstance>()
 const { validateForm } = useFormHandler()
 
 const form = reactive<RuleForm>({
-  username: '',
+  email: '',
   password: '',
+  company_id: 4,
 })
 
 const rules = reactive<FormRules<RuleForm>>({
-  username: [
+  email: [
     {
       required: true,
       message: 'Hãy nhập tài khoản',
@@ -39,9 +41,11 @@ const rules = reactive<FormRules<RuleForm>>({
   ],
 })
 
-async function login() {
+const login = async () => {
   try {
-    const { accessToken, refreshToken } = await FETCH_AUTH.login(form)
+    const res = await FETCH_AUTH.login(form)
+    const accessToken = res.token
+    const refreshToken = res.token
 
     if (!accessToken) {
       return
@@ -67,9 +71,9 @@ async function login() {
 const handleLogin = async () => {
   const valid = await validateForm(loginRef.value)
 
-  if (valid) {
-    login()
-  }
+  console.log(valid)
+  if (!valid) return
+  login()
 }
 </script>
 
@@ -92,9 +96,9 @@ const handleLogin = async () => {
         class="login-form"
         size="large"
       >
-        <el-form-item label="Tài khoản" prop="username">
+        <el-form-item label="Tài khoản" prop="email">
           <el-input
-            v-model="form.username"
+            v-model="form.email"
             class="login-form__input"
             placeholder="Nhập tên tài khoản"
           />

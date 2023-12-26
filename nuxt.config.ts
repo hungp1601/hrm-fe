@@ -1,4 +1,3 @@
-import { join } from 'path'
 import { createResolver } from '@nuxt/kit'
 const { resolve } = createResolver(import.meta.url)
 
@@ -18,20 +17,13 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      apiBase: process.env.BASE_API_URL || 'localhost:3000',
+      apiBase: process.env.BASE_API_URL || 'https://api.stg.weekly.vn',
     },
   },
 
   devServer: {
     port: Number(process.env.PORT) || 4000,
   },
-
-  // typescripts
-  // todo: feat/strict-type-check
-  // typescript: {
-  //   strict: true,
-  //   typeCheck: true,
-  // },
 
   // modules
   modules: [
@@ -46,35 +38,20 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@vueuse/nuxt',
     // contents,
-    '@nuxt/content',
     '@element-plus/nuxt',
     'nuxt-bootstrap-icons',
     '@nuxtjs/svg-sprite',
     'dayjs-nuxt',
-    'nuxt-lodash',
+    // 'nuxt-lodash',
     [
       '@nuxtjs/google-fonts',
       {
         families: {
           Roboto: true,
-          Inter: [400, 700],
           Helvetica: true,
-          'Josefin+Sans': true,
-          Lato: [100, 300],
-          Raleway: {
-            wght: [100, 400],
-            ital: [100],
-          },
-          'Crimson Pro': {
-            wght: '200..900',
-            ital: '200..700',
-          },
         },
       },
     ],
-
-    // todo: feat/localization
-    // '@nuxtjs/i18n'
   ],
 
   css: [
@@ -119,11 +96,11 @@ export default defineNuxtConfig({
     storesDirs: ['~/stores/**', '#/stores/**', '@/stores/**'],
   },
 
-  lodash: {
-    prefix: '_',
-    upperAfterPrefix: false,
-    alias: [],
-  },
+  // lodash: {
+  //   prefix: '_',
+  //   upperAfterPrefix: false,
+  //   alias: [],
+  // },
 
   // module::headlessui
   headlessui: {
@@ -162,34 +139,4 @@ export default defineNuxtConfig({
     importStyle: 'scss',
     // themes: ['light'],
   },
-
-  // todo: feat/localization
-  // module::i18n
-  // i18n: {
-  //   strategy: 'no_prefix',
-  //   defaultLocale: 'en',
-  //   langDir: 'locales',
-  //   vueI18n: {
-  //     fallbackLocale: 'en',
-  //   },
-  //   detectBrowserLanguage: {
-  //     useCookie: true,
-  //     fallbackLocale: 'en',
-  //     redirectOn: 'root',
-  //   },
-  //   locales: [
-  //     {
-  //       code: 'en', // English
-  //       iso: 'en-US',
-  //       name: 'English',
-  //       file: 'en.yml',
-  //     },
-  //     {
-  //       code: 'id', // Indonesia
-  //       iso: 'id-ID',
-  //       name: 'Indonesia',
-  //       file: 'id.yml',
-  //     }
-  //   ]
-  // },
 })

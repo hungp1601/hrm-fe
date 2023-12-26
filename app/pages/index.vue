@@ -2,8 +2,6 @@
   <div></div>
 </template>
 
-<script setup>
-await navigateTo('/login')
-</script>
+<script setup></script>
 
 <style lang="scss" scoped></style>

@@ -1,7 +1,7 @@
 export const SERVICE_NAMES = {
   // login
 
-  LOGIN: '/user/login',
+  LOGIN: '/auth/login',
   REFRESH: '/user/refreshToken',
-  ME: '/user/getUserInfo',
+  ME: '/account/me',
 }

@@ -59,36 +59,5 @@ const _size = computed(() => {
 </script>
 
 <template>
-  <BootstrapIcon
-    v-if="type === 'bootstrap'"
-    :name="name.replace('bi-', '')"
-    :style="{
-      ..._size,
-    }"
-    v-on="$listeners"
-  />
-  <img
-    v-if="type === 'image'"
-    class="app-icon"
-    :src="
-      require('../../app/assets/icons/' + name.replace('img-', '') + '.png')
-    "
-    :style="{
-      ..._size,
-    }"
-    v-on="$listeners"
-  />
-  <svg-icon
-    v-else-if="type === 'svg'"
-    :name="name"
-    :style="{
-      ..._size,
-    }"
-    v-on="$listeners"
-  />
-  <component
-    :is="name.replace('el-icon-', '')"
-    v-else-if="type === 'element'"
-    v-on="$listeners"
-  />
+  <div></div>
 </template>

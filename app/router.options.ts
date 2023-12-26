@@ -23,5 +23,11 @@ export default <RouterConfig>{
       path: '/forgot-password',
       component: localImport('login'),
     },
+
+    {
+      name: ROUTER_NAMES.EDITOR,
+      path: '/editor',
+      component: localImport('editor'),
+    },
   ],
 }

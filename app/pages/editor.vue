@@ -6,7 +6,6 @@
 
 <script setup>
 import { debounce } from '@/utils'
-// await navigateTo('/login')
 
 const content = ref('123')
 
