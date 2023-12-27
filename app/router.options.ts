@@ -6,7 +6,6 @@ function localImport(page: String) {
 }
 
 export default <RouterConfig>{
-  // https://router.vuejs.org/api/interfaces/routeroptions.html#routes
   routes: (_routes) => [
     {
       name: ROUTER_NAMES.HOME,

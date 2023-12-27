@@ -42,7 +42,7 @@ export default defineNuxtConfig({
     'nuxt-bootstrap-icons',
     '@nuxtjs/svg-sprite',
     'dayjs-nuxt',
-    // 'nuxt-lodash',
+    'nuxt-lodash',
     [
       '@nuxtjs/google-fonts',
       {
@@ -53,6 +53,11 @@ export default defineNuxtConfig({
       },
     ],
   ],
+
+  lodash: {
+    prefix: '',
+    upperAfterPrefix: false,
+  },
 
   css: [
     resolve('./assets/scss/_variables.scss'),

@@ -5,8 +5,6 @@
 </template>
 
 <script setup>
-import { debounce } from '@/utils'
-
 const content = ref('123')
 
 const handleUpdateContent = (content) => {
