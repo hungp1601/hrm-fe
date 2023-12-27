@@ -15,16 +15,31 @@ import {
   type ApiMethodType,
 } from '@/types'
 
-export default class http {
-  private static async fetch(
+export class Http {
+  name: any
+  endpoint: any
+
+  constructor(name?: any, endpoint?: string) {
+    if (endpoint) {
+      this.endpoint = endpoint
+    }
+    if (name) {
+      this.name = name
+    }
+  }
+
+  private async fetch(
     url: string,
     methodAndOptions: ApiMethodType,
     needLoading?: boolean,
   ): Promise<any> {
-    // Get environment variable BaseURL
     const runtimeConfig = useRuntimeConfig()
-    const { apiBase } = runtimeConfig.public
-    const reqUrl = `${apiBase}${url}`
+
+    const { baseApiUrl } = runtimeConfig.public
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
+    const that = this
+
+    const reqUrl = baseApiUrl + url
 
     const apiUUID: string = hash(JSON.stringify(methodAndOptions) + url)
     const token = useCookie('authorization')
@@ -73,10 +88,10 @@ export default class http {
           const { status, _data } = response
           if (status !== 200 && status !== 201) {
             if (_data.message.includes('jwt expired')) {
-              const isValid = await http.handleRefreshToken()
+              const isValid = await that.handleRefreshToken()
 
               if (isValid) {
-                const data = await http.handleRegetApi(
+                const data = await that.handleRegetApi(
                   request,
                   options,
                   needLoading,
@@ -86,7 +101,7 @@ export default class http {
                 reject(_data.message)
               }
             } else {
-              http.handleErrorMessage(status, _data.message)
+              that.handleErrorMessage(status, _data.message)
               reject(_data.message)
             }
           } else {
@@ -98,7 +113,7 @@ export default class http {
   }
 
   // Retrieve API
-  private static async handleRegetApi(
+  private async handleRegetApi(
     request: any,
     options: any,
     needLoading = true,
@@ -150,13 +165,11 @@ export default class http {
   }
 
   // RefreshToken
-  private static async handleRefreshToken(): Promise<boolean> {
+  private async handleRefreshToken(): Promise<boolean> {
     const { $toast } = useNuxtApp()
 
-    // Get environment variable BaseURL
     const runtimeConfig = useRuntimeConfig()
-    const { apiBase } = runtimeConfig.public
-    const reqUrl = `${apiBase}`
+    const { baseApiUrl } = runtimeConfig.public
 
     // Set refresh_token to be POST
     const tokenInit = {
@@ -170,7 +183,7 @@ export default class http {
     }
     // eslint-disable-next-line no-async-promise-executor
     return await new Promise(async (resolve) => {
-      const { data } = (await useFetch(`${reqUrl}/user/refreshToken`, {
+      const { data } = (await useFetch(`${baseApiUrl}/user/refreshToken`, {
         method: 'post',
         body: tokenInit,
         headers: headersInit,
@@ -203,7 +216,7 @@ export default class http {
   }
 
   // Error handling
-  private static handleErrorMessage(status: number, message: string) {
+  private handleErrorMessage(status: number, message: string) {
     const { $toast } = useNuxtApp()
 
     switch (status) {
@@ -234,7 +247,7 @@ export default class http {
     params?: QueryFormType,
     needLoading?: boolean,
   ): Promise<ApiResType> {
-    return await http.fetch(url, { method: 'get', params }, needLoading)
+    return await this.fetch(url, { method: 'get', params }, needLoading)
   }
 
   public async post(
@@ -242,7 +255,7 @@ export default class http {
     body?: QueryFormType,
     needLoading?: boolean,
   ): Promise<ApiResType> {
-    return await http.fetch(url, { method: 'post', body }, needLoading)
+    return await this.fetch(url, { method: 'post', body }, needLoading)
   }
 
   public async put(
@@ -250,7 +263,7 @@ export default class http {
     body?: QueryFormType,
     needLoading?: boolean,
   ): Promise<ApiResType> {
-    return await http.fetch(url, { method: 'put', body }, needLoading)
+    return await this.fetch(url, { method: 'put', body }, needLoading)
   }
 
   public async delete(
@@ -258,6 +271,14 @@ export default class http {
     params?: QueryFormType,
     needLoading?: boolean,
   ): Promise<ApiResType> {
-    return await http.fetch(url, { method: 'delete', params }, needLoading)
+    return await this.fetch(url, { method: 'delete', params }, needLoading)
+  }
+
+  public async patch(
+    url: string,
+    params?: QueryFormType,
+    needLoading?: boolean,
+  ): Promise<ApiResType> {
+    return await this.fetch(url, { method: 'patch', params }, needLoading)
   }
 }

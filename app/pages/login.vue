@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { FormInstance, FormRules } from 'element-plus'
-import { ROUTER_NAMES } from '../config/router.name'
-import { FETCH_AUTH } from '@/api'
+import { getService } from '@/api'
+import { SERVICE_NAMES } from '@/utils'
 import { AuthStore } from '@/stores'
 
 interface RuleForm {
@@ -40,7 +40,9 @@ const rules = reactive<FormRules<RuleForm>>({
 
 const login = async () => {
   try {
-    const res = await FETCH_AUTH.login(form)
+    console.log(getService(SERVICE_NAMES.Auth))
+
+    const res = await getService(SERVICE_NAMES.Auth).login(form)
     const accessToken = res.token
     const refreshToken = res.token
 

@@ -17,12 +17,11 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      apiBase: process.env.BASE_API_URL || 'https://api.stg.weekly.vn',
+      baseApiUrl: 'https://api.stg.weekly.vn',
+      nodeEnv: 'development',
+      port: 4000,
+      appPort: 4001,
     },
-  },
-
-  devServer: {
-    port: Number(process.env.PORT) || 4000,
   },
 
   // modules
@@ -117,16 +116,6 @@ export default defineNuxtConfig({
     classSuffix: '',
     preference: 'light',
     fallback: 'light',
-  },
-
-  // module::content
-  content: {
-    markdown: {
-      mdc: true,
-    },
-    highlight: {
-      theme: 'github-dark',
-    },
   },
 
   vite: {
