@@ -3,10 +3,6 @@ import type { FormInstance, FormRules } from 'element-plus'
 import { FETCH_AUTH } from '@/api'
 import { AuthStore } from '@/stores'
 
-definePageMeta({
-  middleware: ['auth'],
-})
-
 interface RuleForm {
   email: string
   password: string
@@ -71,7 +67,6 @@ const login = async () => {
 const handleLogin = async () => {
   const valid = await validateForm(loginRef.value)
 
-  console.log(valid)
   if (!valid) return
   login()
 }

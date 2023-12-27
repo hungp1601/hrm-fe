@@ -2,7 +2,7 @@ import type { RouterConfig } from '@nuxt/schema'
 import { ROUTER_NAMES } from './config/router.name'
 
 function localImport(page: String) {
-  return import(`./pages/${page}`).then((r) => r.default || r)
+  return () => import(`./pages/${page}`).then((r) => r.default || r)
 }
 
 export default <RouterConfig>{

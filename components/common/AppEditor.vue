@@ -5,7 +5,7 @@
       :theme="theme"
       :toolbar="toolbar"
       :content="content"
-      :options="editorOption"
+      :options="options"
       :content-type="contentType"
       :read-only="readonly"
       @update:content="onEditorChange($event)"

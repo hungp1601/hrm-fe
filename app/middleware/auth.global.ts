@@ -1,13 +1,12 @@
 export default defineNuxtRouteMiddleware((to, from) => {
   const token: any = useCookie('authorization')
 
-  console.log(123, to)
-
+  const unathorizedPages = ['/login', '/forgot-password']
   if (!token._value) {
-    if (to.path !== '/login') {
+    if (!unathorizedPages.includes(to.path)) {
       return navigateTo('/login')
     }
-  } else if (to.path === '/login') {
+  } else if (unathorizedPages.includes(to.path)) {
     return navigateTo('/')
   }
 })
