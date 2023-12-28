@@ -1,11 +1,19 @@
 import { createResolver } from '@nuxt/kit'
 const { resolve } = createResolver(import.meta.url)
 
-// https://nuxt.com/docs/api/configuration/nuxt-config
+const env = process.env
+
 export default defineNuxtConfig({
   // exp
   experimental: {
     localLayerAliases: true,
+  },
+
+  vite: {
+    define: {
+      'process.env.NUXT_PUBLIC_BASE_API_URL':
+        process.env.NUXT_PUBLIC_BASE_API_URL,
+    },
   },
 
   // app config
@@ -15,12 +23,13 @@ export default defineNuxtConfig({
     layoutTransition: { name: 'layout', mode: 'out-in' },
   },
 
+  // env variablle that automatically override
   runtimeConfig: {
     public: {
-      baseApiUrl: 'https://api.stg.weekly.vn',
-      nodeEnv: 'development',
-      port: 4000,
-      appPort: 4001,
+      baseApiUrl: '',
+      nodeEnv: '',
+      port: 0,
+      appPort: 0,
     },
   },
 
@@ -36,6 +45,7 @@ export default defineNuxtConfig({
     // management
     '@pinia/nuxt',
     '@vueuse/nuxt',
+    'nuxt-log4nuxt',
     // contents,
     '@element-plus/nuxt',
     'nuxt-bootstrap-icons',
@@ -52,6 +62,11 @@ export default defineNuxtConfig({
       },
     ],
   ],
+
+  log4nuxt: {
+    isEnabled: true, // true or false, defaults to true
+    logLevel: 'trace', // trace, debug, info, warn or error, defaults to debug
+  },
 
   lodash: {
     prefix: '',

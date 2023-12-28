@@ -79,6 +79,7 @@
     "nuxt": "^3.8.0",
     "nuxt-bootstrap-icons": "^1.0.3",
     "nuxt-lodash": "^2.5.3",
+    "nuxt-log4nuxt": "^1.0.3",
     "prettier": "^3.0.3",
     "release-it": "^16.2.1",
     "serve": "^14.2.1",

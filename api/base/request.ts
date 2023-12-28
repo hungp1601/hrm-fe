@@ -2,18 +2,12 @@
  * api encapsulation
  * @param { String } url URL API
  * @param { Object } methodAndOptions Request method and parameters body || params
- * @param { Object } needLoading Do you need to enable Loading?
  */
 
 import { hash } from 'ohash'
 import { LoadingStore, AuthStore } from '@/stores'
 import { AbortApi } from '@/utils'
-import {
-  type ApiResType,
-  type AbortApiType,
-  type QueryFormType,
-  type ApiMethodType,
-} from '@/types'
+import { type ApiResType, type AbortApiType, type ApiMethodType } from '@/types'
 
 export class Http {
   name: any
@@ -31,15 +25,14 @@ export class Http {
   private async fetch(
     url: string,
     methodAndOptions: ApiMethodType,
-    needLoading?: boolean,
   ): Promise<any> {
-    const runtimeConfig = useRuntimeConfig()
-
-    const { baseApiUrl } = runtimeConfig.public
     // eslint-disable-next-line @typescript-eslint/no-this-alias
     const that = this
 
-    const reqUrl = baseApiUrl + url
+    const runtimeConfig = useRuntimeConfig()
+    const { baseApiUrl } = runtimeConfig.public
+
+    const reqUrl = baseApiUrl + this.endpoint + url
 
     const apiUUID: string = hash(JSON.stringify(methodAndOptions) + url)
     const token = useCookie('authorization')
@@ -59,10 +52,6 @@ export class Http {
           AbortApi.removeRequestPending(apiUUID)
 
           options.headers = headersInit
-
-          if (needLoading) {
-            LoadingStore().FN_ADD_LOADING(apiUUID)
-          }
 
           const abortInstance = new AbortController()
           options.signal = abortInstance.signal
@@ -91,11 +80,7 @@ export class Http {
               const isValid = await that.handleRefreshToken()
 
               if (isValid) {
-                const data = await that.handleRegetApi(
-                  request,
-                  options,
-                  needLoading,
-                )
+                const data = await that.handleRegetApi(request, options)
                 resolve(data)
               } else {
                 reject(_data.message)
@@ -113,11 +98,7 @@ export class Http {
   }
 
   // Retrieve API
-  private async handleRegetApi(
-    request: any,
-    options: any,
-    needLoading = true,
-  ): Promise<any> {
+  private async handleRegetApi(request: any, options: any): Promise<any> {
     const apiUUID: string = hash(
       JSON.stringify(request) + JSON.stringify(options),
     )
@@ -128,10 +109,6 @@ export class Http {
     options.onRequestError = null
     options.onResponse = null
     options.onResponseError = null
-
-    if (needLoading) {
-      LoadingStore().FN_ADD_LOADING(apiUUID)
-    }
 
     const abortInstance = new AbortController()
     options.signal = abortInstance.signal
@@ -242,43 +219,23 @@ export class Http {
     }
   }
 
-  public async get(
-    url: string,
-    params?: QueryFormType,
-    needLoading?: boolean,
-  ): Promise<ApiResType> {
-    return await this.fetch(url, { method: 'get', params }, needLoading)
+  public async get(url: string, params?: any): Promise<ApiResType> {
+    return await this.fetch(url, { method: 'get', params })
   }
 
-  public async post(
-    url: string,
-    body?: QueryFormType,
-    needLoading?: boolean,
-  ): Promise<ApiResType> {
-    return await this.fetch(url, { method: 'post', body }, needLoading)
+  public async post(url: string, body?: any): Promise<ApiResType> {
+    return await this.fetch(url, { method: 'post', body })
   }
 
-  public async put(
-    url: string,
-    body?: QueryFormType,
-    needLoading?: boolean,
-  ): Promise<ApiResType> {
-    return await this.fetch(url, { method: 'put', body }, needLoading)
+  public async put(url: string, body?: any): Promise<ApiResType> {
+    return await this.fetch(url, { method: 'put', body })
   }
 
-  public async delete(
-    url: string,
-    params?: QueryFormType,
-    needLoading?: boolean,
-  ): Promise<ApiResType> {
-    return await this.fetch(url, { method: 'delete', params }, needLoading)
+  public async delete(url: string, params?: any): Promise<ApiResType> {
+    return await this.fetch(url, { method: 'delete', params })
   }
 
-  public async patch(
-    url: string,
-    params?: QueryFormType,
-    needLoading?: boolean,
-  ): Promise<ApiResType> {
-    return await this.fetch(url, { method: 'patch', params }, needLoading)
+  public async patch(url: string, params?: any): Promise<ApiResType> {
+    return await this.fetch(url, { method: 'patch', params })
   }
 }

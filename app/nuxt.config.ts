@@ -1,6 +1,8 @@
+const port = Number(process.env.NUXT_PUBLIC_APP_PORT)
+
 export default defineNuxtConfig({
   devServer: {
-    port: Number(process.env.APP_PORT) || 4001,
+    port,
   },
 
   devtools: { enabled: false },

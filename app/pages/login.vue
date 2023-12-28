@@ -1,27 +1,21 @@
 <script lang="ts" setup>
 import type { FormInstance, FormRules } from 'element-plus'
-import { getService } from '@/api'
-import { SERVICE_NAMES } from '@/utils'
+import { ROUTER_NAMES } from '../config/router.name'
+import { getService, SERVICE_NAMES, type LoginParams } from '@/api'
 import { AuthStore } from '@/stores'
 
-interface RuleForm {
-  email: string
-  password: string
-  company_id: number
-}
-
-const { $toast } = useNuxtApp()
+const { $toast, $log4nuxt } = useNuxtApp()
 
 const loginRef = ref<FormInstance>()
 const { validateForm } = useFormHandler()
 
-const form = reactive<RuleForm>({
+const form = reactive<LoginParams>({
   email: '',
   password: '',
   company_id: 4,
 })
 
-const rules = reactive<FormRules<RuleForm>>({
+const rules = reactive<FormRules<LoginParams>>({
   email: [
     {
       required: true,
@@ -40,8 +34,6 @@ const rules = reactive<FormRules<RuleForm>>({
 
 const login = async () => {
   try {
-    console.log(getService(SERVICE_NAMES.Auth))
-
     const res = await getService(SERVICE_NAMES.Auth).login(form)
     const accessToken = res.token
     const refreshToken = res.token
@@ -62,11 +54,12 @@ const login = async () => {
     $toast.success('Đăng nhập thành công')
     router.push({ name: ROUTER_NAMES.HOME })
   } catch (err) {
-    console.error(err)
+    $log4nuxt.error(err)
   }
 }
 
 const handleLogin = async () => {
+  const { baseApiUrl, port, appPort } = useRuntimeConfig().public
   const valid = await validateForm(loginRef.value)
   if (!valid) return
 
