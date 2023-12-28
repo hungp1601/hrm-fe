@@ -8,13 +8,11 @@ const { $toast, $log4nuxt } = useNuxtApp()
 
 const loginRef = ref<FormInstance>()
 const { validateForm } = useFormHandler()
-
 const form = reactive<LoginParams>({
   email: '',
   password: '',
   company_id: 4,
 })
-
 const rules = reactive<FormRules<LoginParams>>({
   email: [
     {
@@ -31,6 +29,14 @@ const rules = reactive<FormRules<LoginParams>>({
     },
   ],
 })
+
+const handleLogin = async () => {
+  const { baseApiUrl, port, appPort } = useRuntimeConfig().public
+  const valid = await validateForm(loginRef.value)
+  if (!valid) return
+
+  login()
+}
 
 const login = async () => {
   try {
@@ -57,66 +63,29 @@ const login = async () => {
     $log4nuxt.error(err)
   }
 }
-
-const handleLogin = async () => {
-  const { baseApiUrl, port, appPort } = useRuntimeConfig().public
-  const valid = await validateForm(loginRef.value)
-  if (!valid) return
-
-  login()
-}
 </script>
 
 <template>
-  <div
-    class="login-page w-screen h-screen flex flex-row justify-center items-center flex-wrap"
-  >
-    <img
-      src="@/assets/images/saly.png"
-      alt=""
-      style="width: 460px; height: 460px"
-    />
+  <div class="login-page w-screen h-screen flex flex-row justify-center items-center flex-wrap">
+    <img src="@/assets/images/saly.png" alt="" style="width: 460px; height: 460px" />
     <div class="flex flex-col justify-center items-center login-form__wrapper">
       <app-icon :size="80" name="hrm-icon"></app-icon>
-      <el-form
-        ref="loginRef"
-        :model="form"
-        :rules="rules"
-        label-position="top"
-        class="login-form"
-        size="large"
-      >
+      <el-form ref="loginRef" :model="form" :rules="rules" label-position="top" class="login-form" size="large">
         <el-form-item label="Tài khoản" prop="email">
-          <el-input
-            v-model="form.email"
-            class="login-form__input"
-            placeholder="Nhập tên tài khoản"
-          />
+          <el-input v-model="form.email" class="login-form__input" placeholder="Nhập tên tài khoản" />
         </el-form-item>
         <el-form-item label="Mật khẩu" prop="password">
-          <el-input
-            v-model="form.password"
-            type="password"
-            class="login-form__input"
-            placeholder="Nhập mật khẩu"
-            show-password
-          />
+          <el-input v-model="form.password" type="password" class="login-form__input" placeholder="Nhập mật khẩu"
+            show-password />
         </el-form-item>
         <div class="text-right mb-8">
-          <NuxtLink
-            class="text-l-grey text-sm text-right"
-            to="/forgot-password"
-          >
+          <NuxtLink class="text-l-grey text-sm text-right" to="/forgot-password">
             Quên mật khẩu
           </NuxtLink>
         </div>
 
         <el-form-item>
-          <el-button
-            class="login-form__submit w-full"
-            type="primary"
-            @click="handleLogin"
-          >
+          <el-button class="login-form__submit w-full" type="primary" @click="handleLogin">
             Đăng nhập
           </el-button>
         </el-form-item>

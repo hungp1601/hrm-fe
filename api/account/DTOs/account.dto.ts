@@ -3,3 +3,7 @@ export interface LoginParams {
   password: string
   company_id?: number
 }
+
+export interface MeParams {
+  token: string
+}

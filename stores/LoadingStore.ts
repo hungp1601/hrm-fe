@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 
 export const LoadingStore = defineStore('loading-store', () => {
-  // Loading 
+  // Loading
   const LOADING_ARRAY_REF = ref<string[]>([])
 
   function FN_ADD_LOADING(uuid: string): void {

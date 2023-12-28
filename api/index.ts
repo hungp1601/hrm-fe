@@ -6,8 +6,6 @@ export * from './services'
 
 const serviceLocator = new ServiceLocator(SERVICE_NAMES)
 
-console.log('service', Services)
-
 Object.keys(Services).forEach((key) => {
   if (key.endsWith('Service')) {
     const service = new Services[key]()
