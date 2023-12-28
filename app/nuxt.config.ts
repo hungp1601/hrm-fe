@@ -13,4 +13,11 @@ export default defineNuxtConfig({
     preference: 'light',
     fallback: 'light',
   },
+
+  // hooks: {
+  //   'pages:extend'(pages) {
+  //     // Add fixed page
+  //     console.log({ pages })
+  //   },
+  // },
 })
