@@ -43,6 +43,7 @@
     "@nuxtjs/color-mode": "^3.3.0",
     "@nuxtjs/tailwindcss": "^6.8.1",
     "@pinia/nuxt": "^0.5.1",
+    "@vercel/kv": "^1.0.1",
     "@vueup/vue-quill": "^1.2.0",
     "@vueuse/core": "^10.5.0",
     "@vueuse/nuxt": "^10.5.0",
