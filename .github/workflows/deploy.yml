@@ -32,7 +32,7 @@ jobs:
     # Deploy to the github_pages environment
     environment:
       name: github_pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: "https://hungp1601.github.io/hrm-fe"
     # Specify runner + deployment step
     runs-on: ubuntu-latest
     steps:
