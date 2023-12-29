@@ -31,7 +31,6 @@ const rules = reactive<FormRules<LoginParams>>({
 })
 
 const handleLogin = async () => {
-  const { baseApiUrl, port, appPort } = useRuntimeConfig().public
   const valid = await validateForm(loginRef.value)
   if (!valid) return
 

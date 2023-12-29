@@ -8020,11 +8020,6 @@ nuxt-log4nuxt@^1.0.3:
     "@nuxt/kit" "^3.1.1"
     defu "^6.1.2"
 
-nuxt-logger@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/nuxt-logger/-/nuxt-logger-0.2.0.tgz#60aa0e67918267387b1219c582df563c21c5839e"
-  integrity sha512-0bWt2GLUTCCAuT+ZkpXHW/XtVxuWlMWsKH3AgrT3fG/ZNDKrnV8uPGSIXv0RgVojeWggHbjIk2nVsjn3m2vmcA==
-
 nuxt-socket-io@^3.0.13:
   version "3.0.13"
   resolved "https://registry.yarnpkg.com/nuxt-socket-io/-/nuxt-socket-io-3.0.13.tgz#dc6a567b23060ea8fe617602295109a8521977c4"
@@ -10247,11 +10242,6 @@ socks@^2.7.1:
     ip "^2.0.0"
     smart-buffer "^4.2.0"
 
-sortablejs@1.14.0:
-  version "1.14.0"
-  resolved "https://registry.yarnpkg.com/sortablejs/-/sortablejs-1.14.0.tgz#6d2e17ccbdb25f464734df621d4f35d4ab35b3d8"
-  integrity sha512-pBXvQCs5/33fdN1/39pPL0NZF20LeRbLQ5jtnheIPN9JQAaufGjKdWduZn4U7wCtVuzKhmRkI0DFYHYRbB2H1w==
-
 "source-map-js@>=0.6.2 <2.0.0", source-map-js@^1.0.1, source-map-js@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.0.2.tgz#adbc361d9c62df380125e7f161f71c826f1e490c"
@@ -11456,6 +11446,11 @@ vue-devtools-stub@^0.1.0:
   resolved "https://registry.yarnpkg.com/vue-devtools-stub/-/vue-devtools-stub-0.1.0.tgz#a65b9485edecd4273cedcb8102c739b83add2c81"
   integrity sha512-RutnB7X8c5hjq39NceArgXg28WZtZpGc3+J16ljMiYnFhKvd8hITxSWQSQ5bvldxMDU6gG5mkxl1MTQLXckVSQ==
 
+vue-draggable-next@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/vue-draggable-next/-/vue-draggable-next-2.2.1.tgz#adbe98c74610cca8f4eb63f92042681f96920451"
+  integrity sha512-EAMS1IRHF0kZO0o5PMOinsQsXIqsrKT1hKmbICxG3UEtn7zLFkLxlAtajcCcUTisNvQ6TtCB5COjD9a1raNADw==
+
 vue-eslint-parser@^9.0.3, vue-eslint-parser@^9.3.1:
   version "9.3.2"
   resolved "https://registry.yarnpkg.com/vue-eslint-parser/-/vue-eslint-parser-9.3.2.tgz#6f9638e55703f1c77875a19026347548d93fd499"
@@ -11527,13 +11522,6 @@ vue@^3.3.13:
     "@vue/runtime-dom" "3.3.13"
     "@vue/server-renderer" "3.3.13"
     "@vue/shared" "3.3.13"
-
-vuedraggable@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/vuedraggable/-/vuedraggable-4.1.0.tgz#edece68adb8a4d9e06accff9dfc9040e66852270"
-  integrity sha512-FU5HCWBmsf20GpP3eudURW3WdWTKIbEIQxh9/8GE806hydR9qZqRRxRE3RjqX7PkuLuMQG/A7n3cfj9rCEchww==
-  dependencies:
-    sortablejs "1.14.0"
 
 wcwidth@^1.0.1:
   version "1.0.1"

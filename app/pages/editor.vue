@@ -1,6 +1,8 @@
 <template>
   <div>
     <app-editor :content="content" @update="handleUpdateContentDebounce" />
+    <app-button icon="bi-plus" type="primary" loading>123</app-button>
+    <el-button type="primary" loading>Loading</el-button>
   </div>
 </template>
 

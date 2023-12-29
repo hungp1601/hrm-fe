@@ -9,13 +9,6 @@ export default defineNuxtConfig({
     localLayerAliases: true,
   },
 
-  vite: {
-    define: {
-      'process.env.NUXT_PUBLIC_BASE_API_URL':
-        process.env.NUXT_PUBLIC_BASE_API_URL,
-    },
-  },
-
   // app config
   app: {
     // global transition
@@ -65,7 +58,7 @@ export default defineNuxtConfig({
 
   log4nuxt: {
     isEnabled: true, // true or false, defaults to true
-    logLevel: 'trace', // trace, debug, info, warn or error, defaults to debug
+    logLevel: env.NUXT_PUBLIC_NODE_ENV === 'production' ? 'error' : 'trace', // trace, debug, info, warn or error, defaults to debug
   },
 
   lodash: {

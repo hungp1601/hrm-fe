@@ -63,6 +63,7 @@ const _size = computed(() => {
     :style="{
       ..._size,
     }"
+    @click="$emit('click')"
   />
   <img
     v-if="type === 'image'"
@@ -73,6 +74,7 @@ const _size = computed(() => {
     :style="{
       ..._size,
     }"
+    @click="$emit('click')"
   />
   <svg-icon
     v-else-if="type === 'svg'"
@@ -80,5 +82,6 @@ const _size = computed(() => {
     :style="{
       ..._size,
     }"
+    @click="$emit('click')"
   />
 </template>
