@@ -20,11 +20,29 @@ const rules = reactive<FormRules<LoginParams>>({
       message: 'Hãy nhập tài khoản',
       trigger: 'blur',
     },
+    {
+      validator(rule, value, callback) {
+        if (
+          value &&
+          !value.match(
+            /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
+          )
+        ) {
+          callback(new Error('Vui nhập đúng định dạng email'))
+        }
+        callback()
+      },
+    },
   ],
   password: [
     {
       required: true,
       message: 'Hãy nhập mật khẩu',
+      trigger: 'blur',
+    },
+    {
+      min: 6,
+      message: 'Mật khẩu phải ít nhất 6 kí tự',
       trigger: 'blur',
     },
   ],

@@ -3,6 +3,7 @@
     <app-editor :content="content" @update="handleUpdateContentDebounce" />
     <app-button icon="bi-plus" type="primary" loading>123</app-button>
     <el-button type="primary" loading>Loading</el-button>
+    <app-avatar text="hung" :size="32"></app-avatar>
   </div>
 </template>
 
