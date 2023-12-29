@@ -199,22 +199,21 @@ export class Http {
     switch (status) {
       case 401: {
         // @ts-ignore
-        $toast.error(`${status} ${message}`)
-        AuthStore().FN_REMOVE_TOKEN()
+        $toast.error(`${message}`)
         break
       }
       case 404:
         // @ts-ignore
-        $toast.error(`${status} ${message}`)
+        $toast.error(`${message}`)
 
         break
       case 500:
         // @ts-ignore
-        $toast.error(`${status} ${message}`)
+        $toast.error(`${message}`)
         break
       default:
         // @ts-ignore
-        $toast.error(`${status} ${message}`)
+        $toast.error(`${message}`)
         break
     }
   }

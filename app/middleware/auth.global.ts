@@ -6,7 +6,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
     if (to.path === '/') {
       return navigateTo('/login')
     } else if (!unathorizedPages.includes(to.path)) {
-      return navigateTo('/')
+      throw createError({ statusMessage: 'Unauthorized', statusCode: 401 })
     }
   } else if (unathorizedPages.includes(to.path)) {
     return navigateTo('/')

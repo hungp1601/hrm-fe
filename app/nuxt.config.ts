@@ -14,15 +14,6 @@ export default defineNuxtConfig({
     fallback: 'light',
   },
 
-  nitro: {
-    storage: {
-      data: {
-        driver: 'vercelKV',
-        /* Vercel KV driver options */
-      },
-    },
-  },
-
   // hooks: {
   //   'pages:extend'(pages) {
   //     // Add fixed page
