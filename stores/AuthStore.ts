@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { getService, SERVICE_NAMES } from '@/api'
+import { ROUTER_NAMES } from '~/app/config/router.name'
 
 export const AuthStore = defineStore('auth-store', () => {
   const TOKEN_REF = ref(useCookie('authorization'))
@@ -30,22 +31,23 @@ export const AuthStore = defineStore('auth-store', () => {
 
     $toast.success('Đăng xuất thành công')
 
-    router.push('/login')
+    router.push({ name: ROUTER_NAMES.LOGIN })
   }
 
   function FN_REMOVE_TOKEN() {
     const authorization = useCookie('authorization')
     authorization.value = null
     const router = useRouter()
-    router.push('/login')
+    router.push({ name: ROUTER_NAMES.LOGIN })
   }
 
   async function FN_GET_USER_INFO() {
     if (!TOKEN_GETTER.value) return
 
-    const result = await getService(SERVICE_NAMES.Account).getUserInfo({})
+    const result = await getService(SERVICE_NAMES.Auth).getUserInfo({})
+    console.log('USER_INFO', result)
 
-    USER_INFO.value = result
+    USER_INFO.value = result.data
   }
 
   return {

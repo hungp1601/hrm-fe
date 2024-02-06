@@ -57,31 +57,33 @@ const _size = computed(() => {
 </script>
 
 <template>
-  <BootstrapIcon
-    v-if="type === 'bootstrap'"
-    :name="name.replace('bi-', '')"
-    :style="{
-      ..._size,
-    }"
-    @click="$emit('click')"
-  />
-  <img
-    v-if="type === 'image'"
-    class="app-icon"
-    :src="
-      require('../../app/assets/icons/' + name.replace('img-', '') + '.png')
-    "
-    :style="{
-      ..._size,
-    }"
-    @click="$emit('click')"
-  />
-  <svg-icon
-    v-else-if="type === 'svg'"
-    :name="name"
-    :style="{
-      ..._size,
-    }"
-    @click="$emit('click')"
-  />
+  <span>
+    <BootstrapIcon
+      v-if="type === 'bootstrap'"
+      :name="name.replace('bi-', '')"
+      :style="{
+        ..._size,
+      }"
+      @click="$emit('click')"
+    />
+    <img
+      v-if="type === 'image'"
+      class="app-icon"
+      :src="
+        require('../../app/assets/icons/' + name.replace('img-', '') + '.png')
+      "
+      :style="{
+        ..._size,
+      }"
+      @click="$emit('click')"
+    />
+    <svg-icon
+      v-else-if="type === 'svg'"
+      :name="name"
+      :style="{
+        ..._size,
+      }"
+      @click="$emit('click')"
+    />
+  </span>
 </template>

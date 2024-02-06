@@ -32,7 +32,6 @@ export default defineNuxtConfig({
     '@nuxtjs/eslint-module',
     // styling & ui
     '@nuxtjs/tailwindcss',
-    'nuxt-headlessui',
     'nuxt-icon',
     '@nuxtjs/color-mode',
     // management
@@ -113,11 +112,6 @@ export default defineNuxtConfig({
   //   upperAfterPrefix: false,
   //   alias: [],
   // },
-
-  // module::headlessui
-  headlessui: {
-    prefix: 'Headless',
-  },
 
   // module::color-mode
   colorMode: {

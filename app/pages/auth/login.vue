@@ -1,6 +1,7 @@
+<!-- eslint-disable vue/no-deprecated-v-on-native-modifier -->
 <script lang="ts" setup>
 import type { FormInstance, FormRules } from 'element-plus'
-import { ROUTER_NAMES } from '../config/router.name'
+import { ROUTER_NAMES } from '../../config/router.name'
 import { getService, SERVICE_NAMES, type LoginParams } from '@/api'
 import { AuthStore } from '@/stores'
 
@@ -9,40 +10,21 @@ const { $toast, $log4nuxt } = useNuxtApp()
 const loginRef = ref<FormInstance>()
 const { validateForm } = useFormHandler()
 const form = reactive<LoginParams>({
-  email: '',
+  username: '',
   password: '',
-  company_id: 4,
 })
 const rules = reactive<FormRules<LoginParams>>({
-  email: [
+  username: [
     {
       required: true,
       message: 'Hãy nhập tài khoản',
       trigger: 'blur',
-    },
-    {
-      validator(rule, value, callback) {
-        if (
-          value &&
-          !value.match(
-            /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
-          )
-        ) {
-          callback(new Error('Vui nhập đúng định dạng email'))
-        }
-        callback()
-      },
     },
   ],
   password: [
     {
       required: true,
       message: 'Hãy nhập mật khẩu',
-      trigger: 'blur',
-    },
-    {
-      min: 6,
-      message: 'Mật khẩu phải ít nhất 6 kí tự',
       trigger: 'blur',
     },
   ],
@@ -58,8 +40,8 @@ const handleLogin = async () => {
 const login = async () => {
   try {
     const res = await getService(SERVICE_NAMES.Auth).login(form)
-    const accessToken = res.token
-    const refreshToken = res.token
+    const accessToken = res.data.access_token
+    const refreshToken = res.data.refresh_token
 
     if (!accessToken) {
       return
@@ -77,6 +59,7 @@ const login = async () => {
     $toast.success('Đăng nhập thành công')
     router.push({ name: ROUTER_NAMES.HOME })
   } catch (err) {
+    $toast.error(err)
     $log4nuxt.error(err)
   }
 }
@@ -100,10 +83,11 @@ const login = async () => {
         label-position="top"
         class="login-form"
         size="large"
+        @keydown.enter="handleLogin"
       >
-        <el-form-item label="Tài khoản" prop="email">
+        <el-form-item label="Tài khoản" prop="username">
           <el-input
-            v-model="form.email"
+            v-model="form.username"
             class="login-form__input"
             placeholder="Nhập tên tài khoản"
           />
@@ -120,7 +104,7 @@ const login = async () => {
         <div class="text-right mb-8">
           <NuxtLink
             class="text-l-grey text-sm text-right"
-            to="/forgot-password"
+            to="/auth/forgot-password"
           >
             Quên mật khẩu
           </NuxtLink>

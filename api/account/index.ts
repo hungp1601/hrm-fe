@@ -1,3 +1,3 @@
-export * from './auth'
-export * from './account'
+export * from './auth.service'
+export * from './account.service'
 export * from './DTOs'

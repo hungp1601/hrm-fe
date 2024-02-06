@@ -8,6 +8,7 @@ import { hash } from 'ohash'
 import { LoadingStore, AuthStore } from '@/stores'
 import { AbortApi } from '@/utils'
 import { type ApiResType, type AbortApiType, type ApiMethodType } from '@/types'
+import { ROUTER_NAMES } from '@/app/config/router.name'
 
 export class Http {
   name: any
@@ -67,7 +68,13 @@ export class Http {
           AbortApi.clearRequestPending(apiUUID)
           LoadingStore().FN_REMOVE_LOADING(apiUUID)
 
-          console.error(error)
+          if (error.message === 'net::ERR_CONNECTION_REFUSED') {
+            // Handle the connection refused error here
+            reject(error.message)
+          } else {
+            console.error(error)
+            reject(error.message)
+          }
         },
         // response to interception
         async onResponse({ request, response, options }) {
@@ -180,7 +187,7 @@ export class Http {
         refreshToken.value = null
 
         const router = useRouter()
-        router.push('/login')
+        router.push({ name: ROUTER_NAMES.LOGIN })
         resolve(false)
       } else {
         const accessToken = useCookie('authorization')
@@ -222,19 +229,31 @@ export class Http {
     return await this.fetch(url, { method: 'get', params })
   }
 
-  public async post(url: string, body?: any): Promise<ApiResType> {
-    return await this.fetch(url, { method: 'post', body })
+  public async post(
+    url: string,
+    body?: any,
+    params?: any,
+  ): Promise<ApiResType> {
+    return await this.fetch(url, { method: 'post', body, params })
   }
 
-  public async put(url: string, body?: any): Promise<ApiResType> {
-    return await this.fetch(url, { method: 'put', body })
+  public async put(url: string, body?: any, params?: any): Promise<ApiResType> {
+    return await this.fetch(url, { method: 'put', body, params })
   }
 
-  public async delete(url: string, params?: any): Promise<ApiResType> {
-    return await this.fetch(url, { method: 'delete', params })
+  public async delete(
+    url: string,
+    body?: any,
+    params?: any,
+  ): Promise<ApiResType> {
+    return await this.fetch(url, { method: 'delete', params, body })
   }
 
-  public async patch(url: string, params?: any): Promise<ApiResType> {
-    return await this.fetch(url, { method: 'patch', params })
+  public async patch(
+    url: string,
+    body?: any,
+    params?: any,
+  ): Promise<ApiResType> {
+    return await this.fetch(url, { method: 'patch', params, body })
   }
 }
