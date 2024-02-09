@@ -14,7 +14,8 @@
       "@/Utils/*": ["./utils/*"],
       "@/Utils": ["./utils"],
       "@Utils/*": ["./utils/*"],
-      "@Utils": ["./utils"]
+      "@Utils": ["./utils"],
+      "@App/*": ["./app/*"],
     }
   }
 }

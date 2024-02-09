@@ -79,13 +79,13 @@ export default defineNuxtConfig({
       global: true,
     },
     {
-      prefix: 'Awesome',
-      path: resolve('./components/awesome'),
+      pathPrefix: false,
+      path: resolve('./components/common'),
       global: true,
     },
     {
       pathPrefix: false,
-      path: resolve('./components/common'),
+      path: resolve('./components/Header'),
       global: true,
     },
   ],

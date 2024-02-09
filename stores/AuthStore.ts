@@ -45,8 +45,6 @@ export const AuthStore = defineStore('auth-store', () => {
     if (!TOKEN_GETTER.value) return
 
     const result = await getService(SERVICE_NAMES.Auth).getUserInfo({})
-    console.log('USER_INFO', result)
-
     USER_INFO.value = result.data
   }
 
