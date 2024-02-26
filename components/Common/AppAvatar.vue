@@ -30,7 +30,7 @@ export default {
     textColor: String,
     defaultImg: {
       type: String,
-      default: '@/assets/images/avatar.png',
+      default: '../../assets/images/avatar.png',
     },
     thumbnail: {
       type: Boolean,

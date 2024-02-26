@@ -19,6 +19,7 @@
     "@typescript-eslint/no-unused-vars": "off",
     "camelcase": 0,
     "vue/no-deprecated-dollar-listeners-api": 0,
-    "vue/require-explicit-emits": 0
+    "vue/require-explicit-emits": 0,
+    "verbatimModuleSyntax": 0
   }
 }

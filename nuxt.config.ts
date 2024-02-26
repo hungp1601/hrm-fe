@@ -69,23 +69,30 @@ export default defineNuxtConfig({
     resolve('./assets/scss/_variables.scss'),
     resolve('./assets/scss/_layout.scss'),
     resolve('./assets/scss/app.scss'),
+    resolve('./assets/scss/global.scss'),
     'vue-toast-notification/dist/theme-default.css',
   ],
 
   components: [
     {
-      prefix: 'Layout',
+      // prefix: 'Layout',
+      pathPrefix: false,
       path: resolve('./components/layouts'),
       global: true,
     },
     {
       pathPrefix: false,
-      path: resolve('./components/common'),
+      path: resolve('./components/Common'),
       global: true,
     },
     {
       pathPrefix: false,
       path: resolve('./components/Header'),
+      global: true,
+    },
+    {
+      pathPrefix: false,
+      path: resolve('./components/Dashboard'),
       global: true,
     },
   ],
