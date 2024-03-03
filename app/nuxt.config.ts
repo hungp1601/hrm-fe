@@ -5,6 +5,8 @@ export default defineNuxtConfig({
     port,
   },
 
+  ssr: false,
+
   devtools: { enabled: false },
   extends: ['../'],
 

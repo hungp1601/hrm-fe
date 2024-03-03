@@ -19,15 +19,15 @@ const MyTheme = {
     },
     blue: {
       DEFAULT: '#2684FF',
-      '50': '#B8E2FF',
+      '50': '#E6EDF9',
       '100': '#DEEBFF',
       '200': '#B3D4FF',
       '300': '#4C9AFF',
-      '400': '#2684FF',
+      '400': '#4C9AFF',
       '500': '#0096FF',
-      '600': '#2684FF',
-      '700': '#0065FF',
-      '800': '#0052CC',
+      '600': '#0065FF',
+      '700': '#0052CC',
+      '800': '#0747A6',
       '900': '#0747A6',
     },
     red: {
@@ -42,6 +42,20 @@ const MyTheme = {
       '700': '#F30000',
       '800': '#BB0000',
       '900': '#830000',
+    },
+
+    grey: {
+      '700': '#263238',
+      '500': '#4D4D4D',
+      '300': '#717171',
+    },
+    neutral: {
+      '900': '#263238',
+      '700': '#263238',
+      '500': '#263238',
+
+      '100': '#ADADAD',
+      '50': '#F2F4F7',
     },
   },
 }
@@ -71,12 +85,12 @@ export default <Partial<Config>>{
         green: MyTheme.colors.green,
         blue: MyTheme.colors.blue,
         red: MyTheme.colors.red,
+        grey: MyTheme.colors.grey,
         slate: colors.slate,
 
         warning: '#FBC02D',
         success: '#E53835',
         confirm: '#2E7D31',
-        grey: '#717171',
         silver: '#F5F7FA',
         'l-grey': '#ADADAD',
         'd-grey': '#4D4D4D',

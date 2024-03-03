@@ -70,6 +70,7 @@ const login = async () => {
     class="login-page w-screen h-screen flex flex-row justify-center items-center flex-wrap"
   >
     <img
+      class="hidden md:block"
       src="@/assets/images/saly.png"
       alt=""
       style="width: 460px; height: 460px"

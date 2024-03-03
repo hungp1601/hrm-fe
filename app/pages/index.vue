@@ -39,7 +39,7 @@ const pageCards = ref([
   {
     title: 'Nhân sự',
     icon: 'employee',
-    link: ROUTER_NAMES.EMPLOYEE,
+    name: ROUTER_NAMES.EMPLOYEE,
   },
   {
     title: 'Chấm công',
@@ -49,7 +49,7 @@ const pageCards = ref([
   {
     title: 'Tiền lương',
     icon: 'salary',
-    link: ROUTER_NAMES.SALARY,
+    name: ROUTER_NAMES.SALARY,
   },
   {
     title: 'Quản lí dự án',
@@ -59,13 +59,13 @@ const pageCards = ref([
   {
     title: 'Công việc',
     icon: 'task',
-    link: ROUTER_NAMES.TASK,
+    name: ROUTER_NAMES.TASK,
   },
 
   {
     title: 'Cá nhân',
     icon: 'profile',
-    link: ROUTER_NAMES.PROFILE,
+    name: ROUTER_NAMES.PROFILE,
   },
 ])
 

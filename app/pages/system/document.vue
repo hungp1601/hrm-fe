@@ -23,7 +23,7 @@ definePageMeta({
 <style lang="scss" scoped>
 .system-page {
   padding: 0 24px 8px 24px;
-  background: #cccccc;
+  background: #e6edf9;
 
   &__header {
     min-height: 56px;

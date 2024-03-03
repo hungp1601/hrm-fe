@@ -1,12 +1,12 @@
 <template>
-  <div class="system-page w-full">
+  <div class="employee-page w-full">
     <div
-      class="system-page__header flex flex-row justify-between flex-wrap w-full items-center"
+      class="employee-page__header flex flex-row justify-between flex-wrap w-full items-center"
     >
-      <div class="system-page__header-left headline-20 text-black">
+      <div class="employee-page__header-left headline-20 text-black">
         Phân quyền
       </div>
-      <div class="system-page__header-right"></div>
+      <div class="employee-page__header-right"></div>
     </div>
   </div>
 </template>
@@ -16,12 +16,12 @@ import { ROUTER_NAMES } from '../../config/router.name'
 import { getService, SERVICE_NAMES } from '@/api'
 
 definePageMeta({
-  layout: 'system',
+  layout: 'employee',
 })
 </script>
 
 <style lang="scss" scoped>
-.system-page {
+.employee-page {
   padding: 0 24px 8px 24px;
   background: #cccccc;
 

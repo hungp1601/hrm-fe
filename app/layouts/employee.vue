@@ -2,12 +2,12 @@
   <div>
     <app-header>
       <nuxt-link to="/" class="flex gap-3 items-center ml-7">
-        <app-icon name="system" :size="36" />
-        <span class="headline-20">Hệ thống</span>
+        <app-icon name="employee" :size="36" />
+        <span class="headline-20">Nhân sự</span>
       </nuxt-link>
     </app-header>
 
-    <div class="page-system flex flex-row">
+    <div class="page-employee flex flex-row">
       <app-sidebar :items="items" :selected="currentRouteName"></app-sidebar>
       <slot />
     </div>
@@ -25,30 +25,25 @@ const currentRouteName = computed(() => {
 
 const items = reactive([
   {
-    title: 'Phân quyền',
-    icon: 'permission',
-    name: ROUTER_NAMES.SYSTEM,
+    title: 'Hồ sơ',
+    icon: 'profile',
+    name: ROUTER_NAMES.EMPLOYEE,
   },
   {
-    title: 'Tài liệu',
-    icon: 'document',
-    name: ROUTER_NAMES.SYSTEM_DOCUMENT,
+    title: 'Hợp đồng',
+    icon: 'contract',
+    name: ROUTER_NAMES.EMPLOYEE_CONTRACT,
   },
   {
-    title: 'Cài đặt',
-    icon: 'setting',
-    name: ROUTER_NAMES.SYSTEM_SETTING,
-  },
-  {
-    title: 'Lịch sử truy cập',
-    icon: 'history',
-    name: ROUTER_NAMES.SYSTEM_HISTORY,
+    title: 'Báo cáo',
+    icon: 'report',
+    name: ROUTER_NAMES.EMPLOYEE_REPORT,
   },
 ])
 </script>
 
 <style lang="scss" scoped>
-.page-system {
+.page-employee {
   height: calc(100vh - 56px);
 }
 </style>

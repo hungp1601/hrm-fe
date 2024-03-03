@@ -9,6 +9,8 @@ export default defineNuxtConfig({
     localLayerAliases: true,
   },
 
+  ssr: false,
+
   // app config
   app: {
     // global transition
@@ -32,18 +34,18 @@ export default defineNuxtConfig({
     '@nuxtjs/eslint-module',
     // styling & ui
     '@nuxtjs/tailwindcss',
-    'nuxt-icon',
-    '@nuxtjs/color-mode',
+    // 'nuxt-icon',
+    // '@nuxtjs/color-mode',
     // management
     '@pinia/nuxt',
-    '@vueuse/nuxt',
+    // '@vueuse/nuxt',
     'nuxt-log4nuxt',
     // contents,
     '@element-plus/nuxt',
     'nuxt-bootstrap-icons',
     '@nuxtjs/svg-sprite',
-    'dayjs-nuxt',
-    'nuxt-lodash',
+    // 'dayjs-nuxt',
+    // 'nuxt-lodash',
     [
       '@nuxtjs/google-fonts',
       {
@@ -60,10 +62,10 @@ export default defineNuxtConfig({
     logLevel: env.NUXT_PUBLIC_NODE_ENV === 'production' ? 'error' : 'trace', // trace, debug, info, warn or error, defaults to debug
   },
 
-  lodash: {
-    prefix: '',
-    upperAfterPrefix: false,
-  },
+  // lodash: {
+  //   prefix: '',
+  //   upperAfterPrefix: false,
+  // },
 
   css: [
     resolve('./assets/scss/_variables.scss'),
@@ -121,13 +123,16 @@ export default defineNuxtConfig({
   // },
 
   // module::color-mode
-  colorMode: {
-    classSuffix: '',
-    preference: 'light',
-    fallback: 'light',
-  },
+  // colorMode: {
+  //   classSuffix: '',
+  //   preference: 'light',
+  //   fallback: 'light',
+  // },
 
   vite: {
+    build: {
+      cssCodeSplit: false,
+    },
     css: {
       preprocessorOptions: {
         scss: {

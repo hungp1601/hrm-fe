@@ -17,8 +17,8 @@ const handleBack = () => {
     class="bg-[#DBAEFF] h-screen w-screen flex flex-col justify-center items-center gap-12"
   >
     <div class="flex flex-col justify-center items-center gap-2">
-      <h2 class="text-6xl black font-bold">{{ get(error, 'statusCode') }}</h2>
-      <p>{{ get(error, 'statusMessage') }}</p>
+      <h2 class="text-6xl black font-bold">{{ error?.statusCode }}</h2>
+      <p>{{ error?.statusMessage }}</p>
     </div>
     <img src="@/assets/images/error.png" alt="" srcset="" />
     <button

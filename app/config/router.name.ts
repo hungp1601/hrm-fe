@@ -5,7 +5,14 @@ export const ROUTER_NAMES = {
   EDITOR: 'editor',
 
   SYSTEM: 'system',
+  SYSTEM_DOCUMENT: 'system-document',
+  SYSTEM_SETTING: 'system-setting',
+  SYSTEM_HISTORY: 'system-history',
+
   EMPLOYEE: 'employee',
+  EMPLOYEE_CONTRACT: 'employee-contract',
+  EMPLOYEE_REPORT: 'employee-report',
+
   ATTENDANCE: 'attendance',
   SALARY: 'salary',
   PROJECT: 'project',

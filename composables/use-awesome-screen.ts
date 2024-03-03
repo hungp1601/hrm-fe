@@ -16,7 +16,8 @@ export const useAwesomeScreen = () => {
     height: 0,
   })
 
-  const isMobile = ref(true)
+  const isMobile = ref(window.innerWidth <= 768)
+  const isDesktop = ref(window.innerWidth > 768)
 
   const current = ref<ScreenSize>('sm')
 
@@ -35,6 +36,7 @@ export const useAwesomeScreen = () => {
     screenSize.width = innerWidth
     screenSize.height = innerHeight
     isMobile.value = innerWidth <= 768
+    isDesktop.value = innerWidth > 768
     current.value = getSize()
   }
 
@@ -65,5 +67,6 @@ export const useAwesomeScreen = () => {
     current,
     higherThan,
     isMobile,
+    isDesktop,
   }
 }
