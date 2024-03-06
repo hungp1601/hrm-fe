@@ -83,14 +83,16 @@ export class Http {
 
           const { status, _data } = response
           if (status !== 200 && status !== 201) {
-            if (_data.message.includes('jwt expired')) {
-              const isValid = await that.handleRefreshToken()
+            const isTokeenExpired = _data?.detail.includes('expired')
+            if (isTokeenExpired) {
+              const isNewTokenValid = await that.handleRefreshToken()
 
-              if (isValid) {
+              if (isNewTokenValid) {
+                // call api again with new access token
                 const data = await that.handleRegetApi(request, options)
                 resolve(data)
               } else {
-                reject(_data.message)
+                reject(_data.detail)
               }
             } else {
               that.handleErrorMessage(status, _data.message)
@@ -157,7 +159,7 @@ export class Http {
 
     // Set refresh_token to be POST
     const tokenInit = {
-      refreshToken: useCookie('refreshToken'),
+      token: useCookie('refreshToken'),
     } as object
 
     // Setting access_token
@@ -167,22 +169,23 @@ export class Http {
     }
     // eslint-disable-next-line no-async-promise-executor
     return await new Promise(async (resolve) => {
-      const { data } = (await useFetch(`${baseApiUrl}/user/refreshToken`, {
+      const { data } = (await useFetch(`${baseApiUrl}/auth/refresh_token`, {
         method: 'post',
-        body: tokenInit,
+        params: tokenInit,
         headers: headersInit,
       })) as any
 
-      const res = data._value
+      const { access_token, refresh_token } = data.value.data
 
-      if (!res?.accessToken || !res?.refreshToken) {
+      const accessToken = useCookie('authorization')
+      const refreshToken = useCookie('refreshToken')
+
+      if (!access_token || !refresh_token) {
         // @ts-ignore
         $toast.error('Xin vui lòng đăng nhập lại')
 
         AuthStore().FN_REMOVE_TOKEN()
 
-        const accessToken = useCookie('authorization')
-        const refreshToken = useCookie('refreshToken')
         accessToken.value = null
         refreshToken.value = null
 
@@ -190,10 +193,8 @@ export class Http {
         router.push({ name: ROUTER_NAMES.LOGIN })
         resolve(false)
       } else {
-        const accessToken = useCookie('authorization')
-        const refreshToken = useCookie('refreshToken')
-        accessToken.value = res.accessToken
-        refreshToken.value = res.refreshToken
+        accessToken.value = access_token
+        refreshToken.value = refresh_token
         resolve(true)
       }
     })

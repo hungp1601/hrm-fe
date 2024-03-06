@@ -9,7 +9,7 @@ const props = defineProps({
 })
 
 const onClickDashboard = (name: string) => {
-  router.push({ name })
+  navigateTo({ name })
 }
 </script>
 
