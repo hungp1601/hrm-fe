@@ -1,4 +1,5 @@
 export const convertToEnglish = (str: string): string => {
+  str = str.toLowerCase()
   const map: { [key: string]: string } = {
     á: 'a',
     à: 'a',

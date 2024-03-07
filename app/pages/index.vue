@@ -100,7 +100,7 @@ const handleSearch = (search: string) => {
     search = convertToEnglish(search)
     const newCards = cards.filter((card) => {
       const title = convertToEnglish(card.title)
-      return title.toLowerCase().includes(search.toLowerCase())
+      return title.includes(search.toLowerCase())
     })
     pageCards.value = newCards
   } else {
