@@ -97,6 +97,11 @@ export default defineNuxtConfig({
       path: resolve('./components/Dashboard'),
       global: true,
     },
+    {
+      pathPrefix: false,
+      path: resolve('./components/System'),
+      global: true,
+    },
   ],
 
   imports: {
