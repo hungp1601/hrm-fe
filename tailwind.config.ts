@@ -51,9 +51,8 @@ const MyTheme = {
     },
     neutral: {
       '900': '#263238',
-      '700': '#263238',
-      '500': '#263238',
-
+      '700': '#374151',
+      '500': '#717171',
       '100': '#ADADAD',
       '50': '#F2F4F7',
     },
@@ -80,12 +79,11 @@ export default <Partial<Config>>{
       },
       colors: {
         primary: MyTheme.colors.green,
-        // if want to change primary color to blue
-        // primary: MyTheme.colors.blue,
         green: MyTheme.colors.green,
         blue: MyTheme.colors.blue,
         red: MyTheme.colors.red,
         grey: MyTheme.colors.grey,
+        neutral: MyTheme.colors.neutral,
         slate: colors.slate,
 
         warning: '#FBC02D',

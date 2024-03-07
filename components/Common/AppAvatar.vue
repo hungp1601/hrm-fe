@@ -60,7 +60,7 @@ export default {
   },
   methods: {
     getRandomColor() {
-      return getRandomColor()
+      return getRandomColor(this.text)
     },
 
     getFirstCharacterOfEachWordInString(str = '', length = 2) {

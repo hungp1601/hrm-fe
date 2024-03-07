@@ -1,4 +1,8 @@
-export function getRandomColor() {
+export function getRandomColor(str: string) {
+  let sum = 0
+  for (let i = 0; i < str.length; i++) {
+    sum += str.charCodeAt(i)
+  }
   return [
     '#A48AEE',
     '#34AFD7',
@@ -9,5 +13,5 @@ export function getRandomColor() {
     '#C6A73A',
     '#4D9C46',
     '#DD7236',
-  ][Math.floor(Math.random() * 7)]
+  ][sum % 9]
 }
