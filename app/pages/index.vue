@@ -7,8 +7,16 @@
             <app-icon name="hrm-icon" :size="80" />
           </nuxt-link>
         </div>
-
-        <div class="dashboard-header__right">
+        <div class="dashboard-header__right flex flex-row">
+          <component :is="'ElIconSearch'"></component>
+          <app-icon name="el-icon-search"></app-icon>
+          <el-input
+            v-model="search"
+            class="mr-3"
+            placeholder="Tìm kiếm..."
+            :prefix-icon="ElIconSearch"
+            @input="handleSearch(search)"
+          ></el-input>
           <avatar></avatar>
         </div>
       </div>
@@ -29,8 +37,8 @@
 <script lang="ts" setup>
 import { ROUTER_NAMES } from '../config/router.name'
 import { getService, SERVICE_NAMES } from '@/api'
-
-const pageCards = ref([
+import { convertToEnglish } from '@/utils'
+const cards = [
   {
     title: 'Hệ thống',
     icon: 'system',
@@ -67,7 +75,11 @@ const pageCards = ref([
     icon: 'profile',
     name: ROUTER_NAMES.PROFILE,
   },
-])
+]
+
+const pageCards = ref(cards)
+
+const search = ref('')
 
 const uploadFile = () => {
   const input = document.createElement('input')
@@ -80,6 +92,19 @@ const uploadFile = () => {
     if (file) {
       const res = await getService(SERVICE_NAMES.Upload).upload(file)
     }
+  }
+}
+
+const handleSearch = (search: string) => {
+  if (search) {
+    search = convertToEnglish(search)
+    const newCards = cards.filter((card) => {
+      const title = convertToEnglish(card.title)
+      return title.toLowerCase().includes(search.toLowerCase())
+    })
+    pageCards.value = newCards
+  } else {
+    pageCards.value = cards
   }
 }
 </script>

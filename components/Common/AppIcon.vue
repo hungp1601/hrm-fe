@@ -30,6 +30,10 @@ const type = computed(() => {
   if (props.name.startsWith('img')) {
     return 'image'
   }
+  if (props.name.startsWith('el-icon')) {
+    return 'el-icon'
+  }
+
   return 'svg'
 })
 
@@ -46,6 +50,12 @@ const _size = computed(() => {
         height: parseSize(props.size),
       }
     case 'svg':
+      return {
+        width: parseSize(props.size),
+        height: parseSize(props.size),
+      }
+
+    case 'el-icon':
       return {
         width: parseSize(props.size),
         height: parseSize(props.size),
@@ -85,5 +95,13 @@ const _size = computed(() => {
       }"
       @click="$emit('click')"
     />
+    <component
+      :is="name"
+      v-if="type === 'el-icon'"
+      :style="{
+        ..._size,
+      }"
+      @click="$emit('click')"
+    ></component>
   </span>
 </template>

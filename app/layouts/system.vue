@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="layout-system">
     <app-header>
       <nuxt-link to="/" class="flex gap-3 items-center ml-7">
         <app-icon name="system" :size="36" />
