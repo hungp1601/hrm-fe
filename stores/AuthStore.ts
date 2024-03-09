@@ -27,7 +27,7 @@ export const AuthStore = defineStore('auth-store', () => {
     PERMISSIONS.value = []
     ROLES.value = []
 
-    const { $toast } = useNuxtApp()
+    const { $toast }: any = useNuxtApp()
     const router = useRouter()
 
     $toast.success('Đăng xuất thành công')

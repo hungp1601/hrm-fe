@@ -8,7 +8,6 @@
           </nuxt-link>
         </div>
         <div class="dashboard-header__right flex flex-row">
-          <component :is="'ElIconSearch'"></component>
           <app-icon name="el-icon-search"></app-icon>
           <el-input
             v-model="search"

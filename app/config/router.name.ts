@@ -5,7 +5,6 @@ export const ROUTER_NAMES = {
   EDITOR: 'editor',
 
   SYSTEM: 'system',
-  SYSTEM_DOCUMENT: 'system-document',
   SYSTEM_SETTING: 'system-setting',
   SYSTEM_HISTORY: 'system-history',
 

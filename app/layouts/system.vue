@@ -30,11 +30,6 @@ const items = reactive([
     name: ROUTER_NAMES.SYSTEM,
   },
   {
-    title: 'Tài liệu',
-    icon: 'document',
-    name: ROUTER_NAMES.SYSTEM_DOCUMENT,
-  },
-  {
     title: 'Cài đặt',
     icon: 'setting',
     name: ROUTER_NAMES.SYSTEM_SETTING,

@@ -152,7 +152,7 @@ export class Http {
 
   // RefreshToken
   private async handleRefreshToken(): Promise<boolean> {
-    const { $toast } = useNuxtApp()
+    const { $toast }: any = useNuxtApp()
 
     const runtimeConfig = useRuntimeConfig()
     const { baseApiUrl } = runtimeConfig.public
@@ -202,7 +202,7 @@ export class Http {
 
   // Error handling
   private handleErrorMessage(status: number, message: string) {
-    const { $toast } = useNuxtApp()
+    const { $toast }: any = useNuxtApp()
 
     switch (status) {
       case 401: {
@@ -226,35 +226,23 @@ export class Http {
     }
   }
 
-  public async get(url: string, params?: any): Promise<ApiResType> {
-    return await this.fetch(url, { method: 'get', params })
+  public get(url: string, params?: any): Promise<ApiResType> {
+    return this.fetch(url, { method: 'get', params })
   }
 
-  public async post(
-    url: string,
-    body?: any,
-    params?: any,
-  ): Promise<ApiResType> {
-    return await this.fetch(url, { method: 'post', body, params })
+  public post(url: string, body?: any, params?: any): Promise<ApiResType> {
+    return this.fetch(url, { method: 'post', body, params })
   }
 
-  public async put(url: string, body?: any, params?: any): Promise<ApiResType> {
-    return await this.fetch(url, { method: 'put', body, params })
+  public put(url: string, body?: any, params?: any): Promise<ApiResType> {
+    return this.fetch(url, { method: 'put', body, params })
   }
 
-  public async delete(
-    url: string,
-    body?: any,
-    params?: any,
-  ): Promise<ApiResType> {
-    return await this.fetch(url, { method: 'delete', params, body })
+  public delete(url: string, body?: any, params?: any): Promise<ApiResType> {
+    return this.fetch(url, { method: 'delete', params, body })
   }
 
-  public async patch(
-    url: string,
-    body?: any,
-    params?: any,
-  ): Promise<ApiResType> {
-    return await this.fetch(url, { method: 'patch', params, body })
+  public patch(url: string, body?: any, params?: any): Promise<ApiResType> {
+    return this.fetch(url, { method: 'patch', params, body })
   }
 }

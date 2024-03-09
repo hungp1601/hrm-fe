@@ -7,15 +7,21 @@
     "skipLibCheck": true,
     "ignoreDeprecations": "5.0",
     "suppressImplicitAnyIndexErrors": true,
-    "types": ["@pinia/nuxt", "@nuxtjs/tailwindcss"],
+    "types": [
+      "@pinia/nuxt",
+      "@nuxtjs/tailwindcss",
+      "@nuxt/types",
+      "@nuxtjs/toast",
+      "vue-toast-notification",
+      "nuxt-log4nuxt",
+    ],
     "paths": {
       "~/*": ["./*"],
       "@/*": ["./*"],
       "@/Utils/*": ["./utils/*"],
-      "@/Utils": ["./utils"],
       "@Utils/*": ["./utils/*"],
-      "@Utils": ["./utils"],
-      "@App/*": ["./app/*"],
+      "@Images/*": ["./assets/images/*"],
+      "@App/*": ["./app/*"]
     }
   }
 }

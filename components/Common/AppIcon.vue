@@ -77,7 +77,7 @@ const _size = computed(() => {
       @click="$emit('click')"
     />
     <img
-      v-if="type === 'image'"
+      v-else-if="type === 'image'"
       class="app-icon"
       :src="
         require('../../app/assets/icons/' + name.replace('img-', '') + '.png')
@@ -93,15 +93,6 @@ const _size = computed(() => {
       :style="{
         ..._size,
       }"
-      @click="$emit('click')"
     />
-    <component
-      :is="name"
-      v-if="type === 'el-icon'"
-      :style="{
-        ..._size,
-      }"
-      @click="$emit('click')"
-    ></component>
   </span>
 </template>

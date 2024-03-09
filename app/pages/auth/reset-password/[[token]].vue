@@ -3,7 +3,7 @@ import type { FormInstance, FormRules } from 'element-plus'
 import { ROUTER_NAMES } from '../../../config/router.name'
 import { getService, SERVICE_NAMES, type ResetPasswordParams } from '@/api'
 
-const { $toast, $log4nuxt } = useNuxtApp()
+const { $toast, $log4nuxt }: any = useNuxtApp()
 
 const resetPwd = ref<FormInstance>()
 const { validateForm } = useFormHandler()

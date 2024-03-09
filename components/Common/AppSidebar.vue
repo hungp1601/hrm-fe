@@ -69,7 +69,7 @@ const handleClick = (item: any) => {
   &-item {
     border: 1px solid transparent;
     border-radius: 4px;
-    padding-left: 8px;
+    padding: 0 12px;
     display: flex;
     align-items: center;
     height: 48px;

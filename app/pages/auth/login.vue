@@ -5,7 +5,7 @@ import { ROUTER_NAMES } from '../../config/router.name'
 import { getService, SERVICE_NAMES, type LoginParams } from '@/api'
 import { AuthStore } from '@/stores'
 
-const { $toast, $log4nuxt } = useNuxtApp()
+const { $toast, $log4nuxt }: any = useNuxtApp()
 
 const loginRef = ref<FormInstance>()
 const { validateForm } = useFormHandler()

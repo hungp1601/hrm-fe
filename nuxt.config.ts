@@ -4,11 +4,6 @@ const { resolve } = createResolver(import.meta.url)
 const env = process.env
 
 export default defineNuxtConfig({
-  // exp
-  experimental: {
-    localLayerAliases: true,
-  },
-
   ssr: false,
 
   // app config
@@ -44,7 +39,7 @@ export default defineNuxtConfig({
     '@element-plus/nuxt',
     'nuxt-bootstrap-icons',
     '@nuxtjs/svg-sprite',
-    // 'dayjs-nuxt',
+    'dayjs-nuxt',
     // 'nuxt-lodash',
     [
       '@nuxtjs/google-fonts',
@@ -56,6 +51,12 @@ export default defineNuxtConfig({
       },
     ],
   ],
+
+  dayjs: {
+    locales: ['vi'],
+    plugins: ['relativeTime', 'utc', 'timezone'],
+    defaultLocale: 'vi',
+  },
 
   log4nuxt: {
     isEnabled: true, // true or false, defaults to true
